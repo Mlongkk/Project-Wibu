@@ -1,0 +1,184 @@
+    body{
+        padding:0; margin:0; font-family: Arial, sans-serif; color: white; font-style: italic; font-weight: bold;
+    }
+
+    #background{
+        position: relative; width: 100%; height: 100vh;
+        display: flex; justify-content: center; 
+    }
+
+    #title{
+        position: absolute; width: 100%; height: 10%;
+        background-color: rgb(64, 64, 145); background-image: linear-gradient(rgba(179, 255, 0, 0.2));
+        display: flex; justify-content: center; align-items: center; 
+    }
+
+
+    #screen{
+        position: fixed; width: 100%; height: 100vh;
+        display: flex; justify-content: center; align-items: center; 
+        background-color: rgba(245, 245, 245, 0.534);
+        color:rgb(73, 185, 38);
+        cursor: pointer; transition: all 1.2s;
+    }
+
+
+    #inScreen:hover{
+        color: rgba(73, 185, 38, 0.6);
+    }
+
+
+    #listener{
+        position: fixed; display: flex; justify-content: center; align-items: center;
+        width: 0; height: 0; top:0; right: 0;
+        transition: all 1s; background-color: rgba(53, 51, 51, 0.973);
+    }
+
+    .listenerImg{
+        object-fit: cover; object-position: center; width: 100%; height: 100%;
+    }
+
+    #musicScreen{
+        position: fixed; bottom:2%; 
+    }
+
+    #contain2{
+        position: fixed; display: flex; justify-content: center; align-items: center;
+    }
+    
+    #backgroundMusic{
+        width: 100%; height: 100%; object-fit: cover; object-position: center;
+    }
+
+    #gif{
+        position: fixed; display: flex;
+        width: 12%; height: 18%; left:0; bottom:2%; 
+        cursor: pointer; 
+    }
+
+    #finder{
+        position: fixed; display:flex ;right:5%; top: -20%; transition: all 1s; height: 5%;
+    }
+
+    #searchingResultsBlock{
+        position: fixed; width: 35%; right:0; top: 9%; border-radius: 10px;
+        background-color: white; color:rgba(0, 0, 0, 0.65); box-sizing: border-box;
+        
+    }
+
+    .searchingResults{
+        position: relative; height: 60px; 
+        cursor: pointer; transition: all 1s;
+        color:rgba(0, 0, 0, 0.65); box-sizing: border-box;
+        display: flex;  align-items: center; border-radius: 10px;
+    }
+
+    .searchingResults:hover{
+        background-color: rgb(220, 220, 220);
+        transition: all 0.5s;
+    }
+
+    #picContainer{
+        position: absolute; background-color: white; border-radius: 10px;
+        width:90%; height: 200vh; top:10%; left:5%; right:5%; 
+        
+    }
+
+    .picBlock{
+        position:relative; float:left; width:50%; height:30%; padding:0.5%;  background-color: rgb(240, 240, 240); border:1px solid rgba(0, 0, 0, 0.65);
+        display: flex; justify-content: center; align-items: center; box-sizing: border-box; cursor: pointer; box-shadow: 20px 20px 20px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    .pic{
+         width: 100%; height: 100%; cursor: pointer; 
+         object-fit:cover; object-position: center; 
+         border-radius: 10px;
+    }
+
+    .picSideLeft{
+        position: fixed;  left:0;
+        width: 5%; height:100vh; background-image: linear-gradient(rgba(179, 255, 0, 0.2));
+        background-color: rgba(0,0,200,0.8);
+    }
+
+    .picSideRight{
+        position: fixed;  right: 0;
+        width: 5%; height:100vh; background-image: linear-gradient(rgba(179, 255, 0, 0.2));
+        background-color: rgba(0,0,200,0.8);
+    }
+
+    .musicButton{
+        width:90px; height:20%; font-size:x-large; cursor:pointer
+    }
+
+    .searchBlock{
+        position: fixed; right:12%; top: -15%; transition: all 1s; cursor: pointer;
+    }
+
+    .searchButton{
+        position: fixed;  right:6%; top: -25%; color:rgba(0, 0, 0, 0.65); transition: all 1s; cursor: pointer;
+    }
+
+     @media screen and ((max-width: 540px) or (min-height: 1024px)) {
+        .musicButton{
+            font-size:x-large; cursor:pointer
+        }
+
+        .picBlock{
+            position:relative; float:left; width:100%; height:25%; padding:0.5%;  background-color: rgb(240, 240, 240); border:1px solid rgba(0, 0, 0, 0.65);
+            display: flex; justify-content: center; align-items: center; box-sizing: border-box; cursor: pointer; box-shadow: 20px 20px 20px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        #gif{
+            position: fixed; display: flex;
+            width: 23%; height: 12%; left:-20px; bottom:2%; 
+            cursor: pointer; 
+        }
+
+        .searchBlock{
+            position: fixed; left:5%; top: -15%; transition: all 1s; cursor: pointer; 
+        }
+        
+        .searchButton{
+            position: fixed;  right:0; top: -25%; color:rgba(0, 0, 0, 0.65); transition: all 1s; cursor: pointer;
+        }
+
+        #searchingResultsBlock{
+            position: fixed; width: 80%; left:5%; top: 8.2%; border-radius: 10px;
+            background-color: white; color:rgba(0, 0, 0, 0.65); box-sizing: border-box;
+        
+        }
+
+    }
+
+    @media screen and ((min-width:1025px) and (min-height:1000px)){
+        .musicButton{
+            width:90px; height:20%; font-size:x-large; cursor:pointer
+        }
+
+        .picBlock{
+            position:relative; float:left; width:50%; height:30%; padding:0.5%;  background-color: rgb(240, 240, 240); border:1px solid rgba(0, 0, 0, 0.65);
+            display: flex; justify-content: center; align-items: center; box-sizing: border-box; cursor: pointer; box-shadow: 20px 20px 20px 0 rgba(0, 0, 0, 0.5);
+        }
+        #gif{
+            position: fixed; display: flex;
+            width: 12%; height: 18%; left:0; bottom:2%; 
+            cursor: pointer; 
+        }
+
+        .searchBlock{
+            position: fixed; right:12%; top: -15%; transition: all 1s; cursor: pointer;
+        }
+
+        .searchButton{
+            position: fixed;  right:6%; top: -25%; color:rgba(0, 0, 0, 0.65); transition: all 1s; cursor: pointer;
+        }
+
+        #searchingResultsBlock{
+            position: fixed; width: 35%; right:0; top: 9%; border-radius: 10px;
+            background-color: white; color:rgba(0, 0, 0, 0.65); box-sizing: border-box;
+            
+        }
+    }
+
+    
