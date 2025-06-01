@@ -71,81 +71,6 @@
         }   
     }
  
-        //list nhac
-    let myMusic= [
-    {
-        name: 'Luminous Entities Lost Heart'
-    },
-    {
-        name: 'Lemon'
-    },
-    {
-        name: 'Rokudenashi - One Voice'
-    },
-    {
-        name: 'Akie秋絵天ノ弱 -うぃんぐPiano Ver.- 歌ってみたオリジナルPV'
-    },
-    {
-        name: '洛天依 嘘つきは恋のはじまり オリジナルMV'
-    },
-    {
-        name: 'Best friend'
-    },
-    {
-        name: `Giorno's Theme (Jay D Remix)`
-    },
-    {
-        name: `Kakyoin's Theme`
-    },
-    {
-        name: 'Hotaru - Fujita Maiko'
-    },
-    {
-        name: 'Yume To Hazakura'
-    },
-    {
-        name: 'Omae Wa Mou'
-    },
-    {
-        name: 'Fire Force Opening 1 - Inferno by Mrs.GREEN APPLE'
-    },
-    {
-        name: 'Orange'
-    },
-    {
-        name: 'Sakura - Ikimonogakari'
-    },
-    {
-        name: 'Silhouette'
-    },
-    {
-        name: 'Summertime'
-    },
-    {
-        name: 'Karakai Jouzu no Takagi-san OP 1 Full'
-    },
-    {
-        name: 'Karakai Jouzu no Takagi-san OP 2'
-    },
-    {
-        name: '可愛くてごめん (feat. かぴ)'
-    },
-    {
-        name: 'Yunomi - ジェリーフィッシュ (feat. ローラーガール)'
-    },
-    {
-        name: 'Yoru ni Kakeru夜に駆けるYOASOBI'
-    },
-    {
-        name: 'Karakai Jouzu no Takagi-san OP 3'
-    },
-    {
-        name: 'Bluebird (ブルーバード) - Ikimono Gakari'
-    },
-    {
-        name: 'Acoustic - Unravel'
-    },
-    ];
 
 
     //lấy data Music từ file Json 
@@ -165,6 +90,7 @@
 
     //hàm autoplay nhạc 
     let autoPlay=()=>{ 
+        takeMusic().then(myMusic=>{
             checkTime= parseInt(checkTime)
             musicTimeline.max= parseInt(music.duration)-10
             musicTime.innerHTML= `Current time: ${checkTime}s <br>
@@ -184,6 +110,7 @@
                 }  
             }
             setTimeout(autoPlay,1000);   
+        })
     };
     
     //hàm playPause music
@@ -261,6 +188,7 @@
     let d=0; //biến điều kiện
     let radioSetting=()=>{
         if(d===0){
+            takeMusic().then(myMusic=>{
                 setTimeout(checkButton,200)
                 listener.style.height='100%'; listener.style.width='100%'
                 contain2.style.width= '100%'; contain2.style.height= '100%';
@@ -273,6 +201,7 @@
                     setTimeout(autoPlay,1000)
                 }
                 d=1; checkBackground(myMusic)
+            })    
         }
         
         else{
@@ -295,22 +224,28 @@
     //hàm chuyển nhạc 
     let n=1;
     let nextSong=()=>{
+        takeMusic().then(myMusic=>{
            if (n<=myMusic.length-1){
                 music.pause(); x=0
                 n+=1; checkTime=0;
                 music= new Audio(`./music/${myMusic[n-1].name}.mp3`); music.volume= (musicVolume.value)/100
                 checkBackground(myMusic)
                 playPause(); 
-            }    
+            } 
+        })
+        
     };
 
     let previousSong=()=>{
         if (n>1){
+            takeMusic().then(myMusic=>{
                 music.pause(); x=0
                 n-=1; checkTime=0;
                 music= new Audio(`./music/${myMusic[n-1].name}.mp3`); music.volume= (musicVolume.value)/100
                 checkBackground(myMusic);
                 playPause();
+            })
+             
         }
     };
 
@@ -319,6 +254,7 @@
     let musicName=''; 
     let searchMusic= ()=>{
         if(finder.value!==''){
+            takeMusic().then(myMusic=>{
                 musicName= finder.value;
                 finder.value= '';
                 for(let i=0; i<myMusic.length; i++){
@@ -328,7 +264,8 @@
                         nextSong()
                         break;
                     }            
-                }       
+                }  
+            })      
         }
               
     };
@@ -342,6 +279,7 @@
     let arrIndex=[]; let arrSearch=[]; //đây là 2 arr chứa các kết quả tìm kiếm thỏa mãn
 
     finder.addEventListener('keyup', function(){
+        takeMusic().then(myMusic=>{
             arrIndex=[]; arrSearch=[]; y=''
             searchingResultsBlock.innerHTML=``
             musicName= (finder.value).toLowerCase().trim().split(' ')
@@ -371,12 +309,13 @@
             if(arrIndex.length===5){
                 searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`
             }   
+        })   
     });
 
     //hàm click chuyển thanh kết quả nhạc
     let clickNext= (r)=>{
         if(arrIndex.length===5){
-
+            takeMusic().then(myMusic=>{
                 arrIndex=[];
                 searchingResultsBlock.innerHTML=``
                 for(let i=1; i<6; i++){
@@ -389,13 +328,13 @@
                 if(arrIndex.length===5 && arrIndex[arrIndex.length-1]<arrSearch.length-1){
                     searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`
                 }    
-
+            })
         }       
     };
 
     let clickBack=(r)=>{
         if(r>4){
-
+            takeMusic().then(myMusic=>{
                 arrIndex=[];
                 searchingResultsBlock.innerHTML=``
                 for(let i=-5; i<0; i++){
@@ -408,20 +347,20 @@
                 if(arrIndex[0]>4){
                     searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<p style='float:left; padding-left:3%; cursor:pointer' onclick='clickBack(arrIndex[0])'>⬅️</p>`
                 } 
- 
+            })  
         }   
     }
 
     //hàm addEvent onclick cho các SearchingResult 
     let newResult= ()=>{
-
+        takeMusic().then(myMusic=>{
             for(let i=0; i<arrIndex.length; i++){
                 searchingResults[i].addEventListener('click', function(){
                     finder.value= `Song ${arrIndex[i]+1}: ${myMusic[arrIndex[i]].name}`
                     searchingResultsBlock.innerHTML=``   
                 })    
             }
-
+        })
     }
            
 
