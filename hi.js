@@ -148,6 +148,9 @@
     },
     {
         name:"Acoustic - Unravel"
+    },
+    {
+        name: "Kanojo Wa Tabi Ni Deru-彼女は旅に出る - Sana-鎖那"
     }
 ]
 
