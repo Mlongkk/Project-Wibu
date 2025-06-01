@@ -319,7 +319,6 @@
     let musicName=''; 
     let searchMusic= ()=>{
         if(finder.value!==''){
-            takeMusic().then(myMusic=>{
                 musicName= finder.value;
                 finder.value= '';
                 for(let i=0; i<myMusic.length; i++){
@@ -329,8 +328,7 @@
                         nextSong()
                         break;
                     }            
-                }  
-            })      
+                }       
         }
               
     };
@@ -344,7 +342,6 @@
     let arrIndex=[]; let arrSearch=[]; //đây là 2 arr chứa các kết quả tìm kiếm thỏa mãn
 
     finder.addEventListener('keyup', function(){
-        takeMusic().then(myMusic=>{
             arrIndex=[]; arrSearch=[]; y=''
             searchingResultsBlock.innerHTML=``
             musicName= (finder.value).toLowerCase().trim().split(' ')
@@ -374,13 +371,12 @@
             if(arrIndex.length===5){
                 searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`
             }   
-        })   
     });
 
     //hàm click chuyển thanh kết quả nhạc
     let clickNext= (r)=>{
         if(arrIndex.length===5){
-            takeMusic().then(myMusic=>{
+
                 arrIndex=[];
                 searchingResultsBlock.innerHTML=``
                 for(let i=1; i<6; i++){
@@ -393,13 +389,13 @@
                 if(arrIndex.length===5 && arrIndex[arrIndex.length-1]<arrSearch.length-1){
                     searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`
                 }    
-            })
+
         }       
     };
 
     let clickBack=(r)=>{
         if(r>4){
-            takeMusic().then(myMusic=>{
+
                 arrIndex=[];
                 searchingResultsBlock.innerHTML=``
                 for(let i=-5; i<0; i++){
@@ -412,20 +408,20 @@
                 if(arrIndex[0]>4){
                     searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<p style='float:left; padding-left:3%; cursor:pointer' onclick='clickBack(arrIndex[0])'>⬅️</p>`
                 } 
-            })  
+ 
         }   
     }
 
     //hàm addEvent onclick cho các SearchingResult 
     let newResult= ()=>{
-        takeMusic().then(myMusic=>{
+
             for(let i=0; i<arrIndex.length; i++){
                 searchingResults[i].addEventListener('click', function(){
                     finder.value= `Song ${arrIndex[i]+1}: ${myMusic[arrIndex[i]].name}`
                     searchingResultsBlock.innerHTML=``   
                 })    
             }
-        })
+
     }
            
 
