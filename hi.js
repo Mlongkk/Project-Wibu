@@ -1,6 +1,3 @@
-//alert
-    // alert(`Chào mừng bạn đến với động Wibu!`) 
-    
     //edit màn hình 'Click to start'
     let screenBlock= document.getElementById('screen');
     let inScreen= document.getElementById('inScreen');
@@ -150,7 +147,7 @@
         name:"Acoustic - Unravel"
     },
     {
-        name: "Kanojo Wa Tabi Ni Deru-彼女は旅に出る - Sana-鎖那"
+        name:'Kanojo Wa Tabi Ni Deru-彼女は旅に出る - Sana-鎖那'
     }
 ]
 
@@ -172,15 +169,15 @@
     //hàm autoplay nhạc 
     let autoPlay=()=>{ 
             checkTime= parseInt(checkTime)
-            musicTimeline.max= parseInt(music.duration)-10
+            musicTimeline.max= parseInt(music.duration)
             musicTime.innerHTML= `Current time: ${checkTime}s <br>
-                                End time: ${parseInt(music.duration)-10}s`;
+                                End time: ${parseInt(music.duration)}s`;
             musicTimeline.value= music.currentTime
             if(!music.paused){
-                if(checkTime<parseInt(music.duration)-10){
+                if(checkTime<parseInt(music.duration)){
                     checkTime+=1
                 }
-                else if(checkTime===parseInt(music.duration)-10){
+                else if(checkTime===parseInt(music.duration)){
                     checkTime+=1
                     if(n===myMusic.length){
                         x=1; 
