@@ -70,10 +70,7 @@
  
 
     //list music
-    let myMusic=[  
-    {
-        name:"Luminous Entities Lost Heart"
-    },      
+    let myMusic=[      
     {
         name:"Lemon"
     },
@@ -160,7 +157,7 @@
     
 
     //music
-    let music= new Audio('./music/Luminous Entities Lost Heart.mp3'); //audio khởi tạo
+    let music= new Audio('./music/Lemon.mp3'); //audio khởi tạo
     let checkTime=0; //thời gian nhạc hiện tại
     let autoRunRadio='Off'; //biến check điều kiện
     let musicTime= document.getElementById('musicTime'); //khối chứa currentTime và endTime
