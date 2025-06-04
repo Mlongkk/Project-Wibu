@@ -173,7 +173,7 @@
                 if(checkTime<parseInt(music.duration)){
                     checkTime+=1
                 }
-                else if(checkTime===parseInt(music.duration)-1){
+                else if(checkTime===parseInt(music.duration)-3){
                     checkTime+=1
                     if(n===myMusic.length){
                         x=1; 
