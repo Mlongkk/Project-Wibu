@@ -103,9 +103,6 @@
         name:"Omae Wa Mou"
     },
     {
-        name:"Fire Force Opening 1 - Inferno by Mrs.GREEN APPLE"
-    },
-    {
         name:"Orange"
     },
     {
