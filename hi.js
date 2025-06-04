@@ -168,13 +168,13 @@
             checkTime= parseInt(checkTime)
             musicTimeline.max= parseInt(music.duration)
             musicTime.innerHTML= `Current time: ${checkTime}s <br>
-                                End time: ${parseInt(music.duration)-2}s`;
+                                End time: ${parseInt(music.duration)-1}s`;
             musicTimeline.value= music.currentTime
             if(!music.paused){
-                if(checkTime<parseInt(music.duration)-2){
+                if(checkTime<parseInt(music.duration)-1){
                     checkTime+=1
                 }
-                else if(checkTime===parseInt(music.duration)-2){
+                else if(checkTime===parseInt(music.duration)-1){
                     checkTime+=1
                     if(n===myMusic.length){
                         x=1; 
