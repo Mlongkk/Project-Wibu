@@ -106,9 +106,6 @@
         name:"Orange"
     },
     {
-        name:"Sakura - Ikimonogakari"
-    },
-    {
         name:"Silhouette"
     },
     {
