@@ -166,7 +166,7 @@
     //hàm autoplay nhạc 
     let autoPlay=()=>{ 
             checkTime= parseInt(checkTime)
-            musicTimeline.max= parseInt(music.duration)
+            musicTimeline.max= parseInt(music.duration)-1
             musicTime.innerHTML= `Current time: ${checkTime}s <br>
                                 End time: ${parseInt(music.duration)-1}s`;
             musicTimeline.value= music.currentTime
