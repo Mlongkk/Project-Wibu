@@ -168,12 +168,12 @@
     let autoPlay=()=>{ 
             checkTime= parseInt(checkTime)
             musicTime.innerHTML= `Current time: ${checkTime}s <br>
-                                End time: ${parseInt(music.duration)-1}s`;
+                                End time: ${parseInt(music.duration)-5}s`;
             if(!music.paused){
-                if(checkTime<parseInt(music.duration)+1){
+                if(checkTime<parseInt(music.duration)-5){
                     checkTime+=1
                 }
-                else if(checkTime===parseInt(music.duration)+1){
+                else if(checkTime===parseInt(music.duration)-5){
                     checkTime+=1
                     if(n===myMusic.length){
                         x=1; 
