@@ -170,10 +170,10 @@
             musicTime.innerHTML= `Current time: ${checkTime}s <br>
                                 End time: ${parseInt(music.duration)-1}s`;
             if(!music.paused){
-                if(checkTime<parseInt(music.duration)){
+                if(checkTime<parseInt(music.duration)+1){
                     checkTime+=1
                 }
-                else if(checkTime===parseInt(music.duration)-3){
+                else if(checkTime===parseInt(music.duration)+1){
                     checkTime+=1
                     if(n===myMusic.length){
                         x=1; 
