@@ -1,3 +1,4 @@
+
     //edit màn hình 'Click to start'
     let screenBlock= document.getElementById('screen');
     let inScreen= document.getElementById('inScreen');
@@ -166,10 +167,8 @@
     //hàm autoplay nhạc 
     let autoPlay=()=>{ 
             checkTime= parseInt(checkTime)
-            musicTimeline.max= parseInt(music.duration)-1
             musicTime.innerHTML= `Current time: ${checkTime}s <br>
                                 End time: ${parseInt(music.duration)-1}s`;
-            musicTimeline.value= music.currentTime
             if(!music.paused){
                 if(checkTime<parseInt(music.duration)-1){
                     checkTime+=1
@@ -201,20 +200,6 @@
     }
 
 
-    //edit thanh Volume và thanh Music
-    let musicVolume= document.getElementById('musicVolume'); //thanh Volume
-    let volumeLabel= document.getElementById('volumeLabel') //dòng text của thanh Volume
-    musicVolume.addEventListener('click', function(){
-        music.volume= (musicVolume.value)/100
-        volumeLabel.innerHTML= `${musicVolume.value}%`
-    })
-
-    let musicTimeline= document.getElementById('musicTimeline') //thanh Music
-    musicTimeline.addEventListener('click', function(){
-        music.currentTime= musicTimeline.value
-        checkTime= musicTimeline.value
-    })
-
 
     //create event cho radio (gif)
     let radio= document.getElementById('gif');  //ảnh gif
@@ -223,7 +208,6 @@
     let finder= document.getElementById('finder') // thanh tìm kiếm nhạc
     let label = document.getElementById('label') //dòng text 'Tìm kiếm'
     let search= document.getElementById('search') //nút search
-    let vb= document.getElementById('volume&bar') // khối chứa thanh Volume 
     let musicScreen= document.getElementById('musicScreen') //khối chứa các button playPause
     
     //create music buttons
@@ -246,12 +230,12 @@
     let checkBackground=(x)=>{
         if(check===1){
             listener.innerHTML= `<img class='listenerImg' src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3fdfd8c5-0b8c-45a7-a8aa-ebc7752ae9b8/ddyndrq-1891f96b-4757-4cb8-b9c9-2ce9c044e244.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNmZGZkOGM1LTBiOGMtNDVhNy1hOGFhLWViYzc3NTJhZTliOFwvZGR5bmRycS0xODkxZjk2Yi00NzU3LTRjYjgtYjljOS0yY2U5YzA0NGUyNDQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Cf8VyFx_wqjsQvoLc75aUc22fwzJqAq59voj4g6zVCo" alt="">
-        <h1 style='position:absolute; bottom:20%'> <marquee behavior="sroll" direction="left"> Song ${n}: ${x[n-1].name} </marquee></h1>` 
+        <h1 style='position:absolute; bottom:15%'> <marquee behavior="sroll" direction="left"> Song ${n}: ${x[n-1].name} </marquee></h1>` 
         }
         else if(check===0){
             showPic().then(data=>{
                 listener.innerHTML= `<img id='backgroundMusic' src="folderWibu/${data[v].name}" alt="">
-            <h1 style='position:absolute; bottom:20%'> <marquee behavior="sroll" direction="left"> Song ${n}: ${x[n-1].name} </marquee></h1>` 
+            <h1 style='position:absolute; bottom:15%'> <marquee behavior="sroll" direction="left"> Song ${n}: ${x[n-1].name} </marquee></h1>` 
             })   
         }
     }
@@ -268,7 +252,6 @@
                 label.style.top= '0.7%'
                 finder.style.top= '3%'
                 search.style.top= '10%'
-                vb.style.bottom= '15%'
                 if(autoRunRadio==="Off"){
                     autoRunRadio= 'On'
                     setTimeout(autoPlay,1000)
@@ -286,7 +269,6 @@
             finder.style.top= '-20%'
             search.style.top= '-25%'
             searchingResultsBlock.innerHTML=``;
-            vb.style.bottom= '-25%';
             musicScreen.innerHTML=''
         }
     }
@@ -300,7 +282,7 @@
            if (n<=myMusic.length-1){
                 music.pause(); x=0
                 n+=1; checkTime=0;
-                music= new Audio(`./music/${myMusic[n-1].name}.mp3`); music.volume= (musicVolume.value)/100
+                music= new Audio(`./music/${myMusic[n-1].name}.mp3`); 
                 checkBackground(myMusic)
                 playPause(); 
             } 
@@ -311,7 +293,7 @@
         if (n>1){
                 music.pause(); x=0
                 n-=1; checkTime=0;
-                music= new Audio(`./music/${myMusic[n-1].name}.mp3`); music.volume= (musicVolume.value)/100
+                music= new Audio(`./music/${myMusic[n-1].name}.mp3`); 
                 checkBackground(myMusic);
                 playPause();
         }
