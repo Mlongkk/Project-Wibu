@@ -88,9 +88,6 @@
         name:"Best friend"
     },
     {
-        name:"Giorno's Theme (Jay D Remix)"
-    },
-    {
         name:"Kakyoin's Theme"
     },
     {
@@ -101,6 +98,9 @@
     },
     {
         name:"Omae Wa Mou"
+    },
+    {
+        name:"Karakai Jouzu no Takagi-san OP 2"
     },
     {
         name:"Orange"
@@ -122,9 +122,6 @@
     },
     {
         name:"Fireworks"
-    },
-    {
-        name:"Karakai Jouzu no Takagi-san OP 2"
     },
     {
         name:"可愛くてごめん (feat. かぴ)"
