@@ -1,14 +1,4 @@
 
-    //edit màn hình 'Click to start'
-    let screenBlock= document.getElementById('screen');
-    let inScreen= document.getElementById('inScreen');
-
-    screenBlock.addEventListener("click", function(){
-        screenBlock.style.width= '0px'; screenBlock.style.height= '0px';
-        inScreen.innerHTML= '';
-    });
-
-
     //lấy data ảnh từ file Json 
     let picContainer= document.getElementById('picContainer')
     let showPic= async ()=>{
@@ -19,6 +9,7 @@
 
     let v; let a=0; let b=0; let check1=60 //đây là các biến lưu trữ của hàm changePic()
     let changePic=(x)=>{
+        picContainer.style.right='5%'
         document.body.scrollTop=0; document.documentElement.scrollTop=0;
         picContainer.innerHTML=''; check1=60;
         showPic().then(data=>{
@@ -201,19 +192,6 @@
     let search= document.getElementById('search') //nút search
     let musicScreen= document.getElementById('musicScreen') //khối chứa các button playPause
     
-    //create music buttons
-    let checkButton= ()=>{
-        if(music.paused){
-            createButtons('▶️');  
-        }
-        else createButtons('⏸️');
-    }
-
-    let createButtons= (x)=>{
-        musicScreen.innerHTML=`<button id="musicButtonprevious" style="cursor:pointer;" onclick='previousSong()'><p class="musicButton">⏮️</p></button>
-            <button id="musicButtonplay" style="cursor:pointer" onclick='playPause()'><p class="musicButton">${x}</p></button>
-            <button id='musicButtonnext' style="cursor:pointer" onclick='nextSong()'><p class="musicButton">⏭️</p></button>`
-    }
 
     
     //hàm check background Music
@@ -237,12 +215,10 @@
     let radioSetting=()=>{
         if(d===0){
             takeMusic().then(myMusic=>{
-                setTimeout(checkButton,200)
                 listener.style.height='100%'; listener.style.width='100%'
                 contain2.style.width= '100%'; contain2.style.height= '100%';
-                label.style.top= '0.7%'
-                finder.style.top= '3%'
-                search.style.top= '10%'
+                musicScreen.style.transition='all 1.5s'; musicScreen.style.bottom='2%'; 
+                searchingResultsBlock.innerHTML=``;
                 if(autoRunRadio==="Off"){
                     autoRunRadio= 'On'
                     setTimeout(autoPlay,1000)
@@ -255,12 +231,9 @@
             d=0;
             listener.style.width= '0'; listener.style.height= '0';
             contain2.style.width= '0'; contain2.style.height= '0';
-            listener.innerHTML= ''
-            label.style.top= '-15%'
-            finder.style.top= '-20%'
-            search.style.top= '-25%'
+            listener.innerHTML= ''; musicScreen.style.transition='all 0s'
+            musicScreen.style.bottom='-50%'; 
             searchingResultsBlock.innerHTML=``;
-            musicScreen.innerHTML=''
         }
     }
 
@@ -318,8 +291,9 @@
     let arrIndex=[]; let arrSearch=[]; //đây là 2 arr chứa các kết quả tìm kiếm thỏa mãn
 
     finder.addEventListener('keyup', function(){
-            arrIndex=[]; arrSearch=[]; y=''
-            searchingResultsBlock.innerHTML=``
+        arrIndex=[]; arrSearch=[]; y=''
+        searchingResultsBlock.innerHTML=``
+        if(finder.value!==''){
             musicName= (finder.value).toLowerCase().trim().split(' ')
 
             //Bước 1: filter kết quả tìm kiếm
@@ -346,7 +320,9 @@
             }
             if(arrIndex.length===5){
                 searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`
-            }     
+            } 
+        }
+                
     });
 
     //hàm click chuyển thanh kết quả nhạc
@@ -401,6 +377,3 @@
     
     
     
-
-
-
