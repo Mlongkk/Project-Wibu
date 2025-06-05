@@ -9,7 +9,6 @@
 
     let v; let a=0; let b=0; let check1=60 //đây là các biến lưu trữ của hàm changePic()
     let changePic=(x)=>{
-        picContainer.style.right='5%'
         document.body.scrollTop=0; document.documentElement.scrollTop=0;
         picContainer.innerHTML=''; check1=60;
         showPic().then(data=>{
@@ -192,7 +191,7 @@
     let search= document.getElementById('search') //nút search
     let musicScreen= document.getElementById('musicScreen') //khối chứa các button playPause
     let exitButton= document.getElementById('exitButton') //nút thoát background nhạc
-
+    let homeButton= document.getElementById('homeButton')
     
     //hàm check background Music
     let check=1; // biến check điều kiện
@@ -218,7 +217,7 @@
                 listener.style.height='100%'; listener.style.width='100%'
                 contain2.style.width= '100%'; contain2.style.height= '100%';
                 musicScreen.style.transition='all 1.5s'; musicScreen.style.bottom='2%'; 
-                searchingResultsBlock.innerHTML=``; exitButton.innerHTML='❎'
+                searchingResultsBlock.innerHTML=``; exitButton.innerHTML='❎'; homeButton.innerHTML=''
                 if(autoRunRadio==="Off"){
                     autoRunRadio= 'On'
                     setTimeout(autoPlay,1000)
@@ -233,7 +232,7 @@
             contain2.style.width= '0'; contain2.style.height= '0';
             listener.innerHTML= ''; musicScreen.style.transition='all 0s'
             musicScreen.style.bottom='-50%'; exitButton.innerHTML=''
-            searchingResultsBlock.innerHTML=``;
+            searchingResultsBlock.innerHTML=``; homeButton.innerHTML='🏠︎'
         }
     }
 
@@ -243,9 +242,10 @@
         contain2.style.width= '0'; contain2.style.height= '0';
         listener.innerHTML= ''; musicScreen.style.transition='all 0s'
         musicScreen.style.bottom='-50%'; exitButton.innerHTML=''
-        searchingResultsBlock.innerHTML=``;
+        searchingResultsBlock.innerHTML=``; homeButton.innerHTML='🏠︎'
     })
     
+
     //hàm chuyển nhạc 
     let n=1;
     let nextSong=()=>{
