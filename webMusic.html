@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Anime</title>
+    <link rel="stylesheet" href="./hmm.css">
+</head>
+
+<body> 
+     
+     <div id="background">
+        <img id='imgBackground'src="background/anime_Sword_Art_Online_anime_girls_sunset_Kirigaya_Kazuto_Yuuki_Asuna_Sun_clouds-243667.jpg" alt="">
+        <div id="picContainer"></div>
+        <div id="title">
+            <label id='label' for="finder" class="searchBlock" style="top:1%">Tìm kiếm</label>
+            <input id="finder" type="text" name='finder' placeholder=" Nhập tên nhạc muốn tìm..." class="searchBlock">       
+            <label for="finder"> <button id='search' class="searchButton">Search</button></label>   
+        </div>
+    </div>  
+
+    
+    <div id="contain2">
+        <div id="listener"></div>
+        <div id="musicScreen">
+            <button id="musicButtonprevious" style="cursor:pointer;" onclick='previousSong()'><p class="musicButton">⏮️</p></button>
+            <button id="musicButtonplay" style="cursor:pointer" onclick='playPause()'><p class="musicButton">▶️</p></button>
+            <button id='musicButtonnext' style="cursor:pointer" onclick='nextSong()'><p class="musicButton">⏭️</p></button>
+        </div> 
+        <div id="searchingResultsBlock"></div>
+        <img id= 'gif' src="https://i.redd.it/j68updlkoyj71.gif" alt="">
+    </div>
+
+    <div style="position: fixed; left:5%; bottom:28%; transition: all 1s;">
+        <p id="musicTime"></p> 
+    </div>
+    
+    
+   
+</body>
+
+<script src="./hi.js"> </script>
+</html>
