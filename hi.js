@@ -191,7 +191,7 @@
     let label = document.getElementById('label') //dòng text 'Tìm kiếm'
     let search= document.getElementById('search') //nút search
     let musicScreen= document.getElementById('musicScreen') //khối chứa các button playPause
-    
+    let exitButton= document.getElementById('exitButton') //nút thoát background nhạc
 
     
     //hàm check background Music
@@ -218,7 +218,7 @@
                 listener.style.height='100%'; listener.style.width='100%'
                 contain2.style.width= '100%'; contain2.style.height= '100%';
                 musicScreen.style.transition='all 1.5s'; musicScreen.style.bottom='2%'; 
-                searchingResultsBlock.innerHTML=``;
+                searchingResultsBlock.innerHTML=``; exitButton.innerHTML='❎'
                 if(autoRunRadio==="Off"){
                     autoRunRadio= 'On'
                     setTimeout(autoPlay,1000)
@@ -232,13 +232,19 @@
             listener.style.width= '0'; listener.style.height= '0';
             contain2.style.width= '0'; contain2.style.height= '0';
             listener.innerHTML= ''; musicScreen.style.transition='all 0s'
-            musicScreen.style.bottom='-50%'; 
+            musicScreen.style.bottom='-50%'; exitButton.innerHTML=''
             searchingResultsBlock.innerHTML=``;
         }
     }
 
     radio.addEventListener('click', radioSetting);
-
+    exitButton.addEventListener('click', function(){
+        listener.style.width= '0'; listener.style.height= '0';
+        contain2.style.width= '0'; contain2.style.height= '0';
+        listener.innerHTML= ''; musicScreen.style.transition='all 0s'
+        musicScreen.style.bottom='-50%'; exitButton.innerHTML=''
+        searchingResultsBlock.innerHTML=``;
+    })
     
     //hàm chuyển nhạc 
     let n=1;
