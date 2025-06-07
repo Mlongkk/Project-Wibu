@@ -225,7 +225,7 @@
             contain2.style.width= '0'; contain2.style.height= '0';
             listener.innerHTML= ''; musicScreen.style.transition='all 0s'
             musicScreen.style.bottom='-100%'; exitButton.innerHTML=''
-            searchingResultsBlock.innerHTML=``; homeButton.innerHTML='🏠︎'
+            searchingResultsBlock.innerHTML=``; homeButton.innerHTML=`<a href="index.html" >🏠︎</a>`
         }
     }
 
@@ -237,7 +237,7 @@
         contain2.style.width= '0'; contain2.style.height= '0';
         listener.innerHTML= ''; musicScreen.style.transition='all 0s'
         musicScreen.style.bottom='-100%'; exitButton.innerHTML=''
-        searchingResultsBlock.innerHTML=``; homeButton.innerHTML='🏠︎'
+        searchingResultsBlock.innerHTML=``; homeButton.innerHTML=`<a href="index.html" >🏠︎</a>`
     })
     
 
