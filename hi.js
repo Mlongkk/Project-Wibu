@@ -1,4 +1,61 @@
 
+    //edit màn hình 'Click to start'
+    let screenBlock= document.getElementById('screen'); //khối chứa 
+    let inScreen= document.getElementById('inScreen');  //dòng text 'Click to start'
+    let imgBackground= document.getElementById('imgBackground') //ảnh nền 
+
+    //Animation waiting Screen
+    let waitingScreen= document.getElementById('waitingScreen') //khối div chứa full screen
+    let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
+    let check2=0 //biến đê thoát hàm resetGif
+
+    //do Gif hay bị lỗi nên phải tạo hàm để reset lại
+    let resetGif=()=>{
+        innerWaitingScreen.src='https://i.pinimg.com/originals/ef/ab/94/efab94beb0245948a128e4388f973988.gif' 
+        if(check2===1){
+            return
+        }
+        setTimeout(resetGif,2000)
+    }
+    resetGif()
+
+    //hàm thoát waiting Screen
+    let waitingAnimation=()=>{
+        innerWaitingScreen.style.left='105%'
+        setTimeout(()=>{
+            check2=1
+            screenBlock.style.right='0'
+            screenBlock.innerHTML=`<img src="folderWibu/anime_Sword_Art_Online_anime_girls_sunset_Kirigaya_Kazuto_Yuuki_Asuna_Sun_clouds-243667.jpg" alt="" style="position: fixed; width: 100%; height: 100vh; object-fit: cover; object-position: 70% 40%;">
+                    <div style="position: absolute; background-color: rgba(0, 0, 0, 0.4); width: 100%; height: 100vh; "></div>
+            <h1 id="inScreen" style="position: absolute; "><b>&nbsp;&nbsp;Click <br>to start!</b></h1>` 
+            
+            setTimeout(()=>{
+                radio.style.position='fixed';
+                waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px';  
+            },500)
+            
+        },6000)
+        
+    }
+    waitingAnimation();
+
+
+    //hàm auto chạy khi cửa sổ kéo xuống 200px, tác dụng: reset Video background
+    window.onscroll=()=>{
+        if(document.body.scrollTop===200 || document.documentElement.scrollTop===200){
+            imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"
+        }
+    }
+
+    //event click
+    screenBlock.addEventListener("click", function(){
+        screenBlock.style.width= '0px'; screenBlock.style.height= '0px';
+        screenBlock.innerHTML=''
+        imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"
+    });
+    
+
+    
     //lấy data ảnh từ file Json 
     let picContainer= document.getElementById('picContainer')
     let showPic= async ()=>{
@@ -7,13 +64,13 @@
         return data;
     }
 
-    let v; let a=0; let b=0; let check1=60 //đây là các biến lưu trữ của hàm changePic()
+    let v; let a=0; let b=0; let check1=54 //đây là các biến lưu trữ của hàm changePic()
     let changePic=(x)=>{
         document.body.scrollTop=0; document.documentElement.scrollTop=0;
-        picContainer.innerHTML=''; check1=60;
+        picContainer.innerHTML=''; check1=54;
         showPic().then(data=>{
             b=x; a=x;
-            for(let i=1;i<31;i++){
+            for(let i=1;i<28;i++){
                 a+=1; x+=1
                 if(x<data.length){
                     picContainer.innerHTML= `${picContainer.innerHTML}<button class='picBlock'> <img class='pic' onmouseover='hoverPic()' src="./folderWibu/${data[x-1].name}" </button>` 
@@ -29,11 +86,11 @@
             }
 
             if(x-check1>=0){
-                if(check1===60){
+                if(check1===54){
                     picContainer.innerHTML= `${picContainer.innerHTML} <h1 style='float:right; padding:3%; cursor: pointer' onclick='changePic(a-check1)'>⬅️</h1>`
                 }
                 else{
-                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 style='float:right; padding:3%; cursor: pointer' onclick='changePic(a-check1-30)'>⬅️</h1>`
+                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 style='float:right; padding:3%; cursor: pointer' onclick='changePic(a-check1-27)'>⬅️</h1>`
                 }
                 
             }
@@ -48,7 +105,7 @@
     let pic= document.getElementsByClassName('pic');
     let picBlock= document.getElementsByClassName('picBlock')
     let hoverPic=()=>{
-        for(let i=0;i<30;i++){
+        for(let i=0;i<27;i++){
             if(i+b<a){
                 pic[i].addEventListener('click', function(){
                     check=0; v=i+b
@@ -60,75 +117,6 @@
     }
  
 
-    //list music
-    let myMusic=[      
-    {
-        name:"Lemon"
-    },
-    {
-        name:"Rokudenashi - One Voice"
-    },
-    {
-        name:"Akie秋絵天ノ弱 -うぃんぐPiano Ver.- 歌ってみたオリジナルPV"
-    },
-    {
-        name:"洛天依 嘘つきは恋のはじまり オリジナルMV"
-    },
-    {
-        name:"Best friend"
-    },
-    {
-        name:"Kakyoin's Theme"
-    },
-    {
-        name:"Hotaru - Fujita Maiko"
-    },
-    {
-        name:"Yume To Hazakura"
-    },
-    {
-        name:"Omae Wa Mou"
-    },
-    {
-        name:"Karakai Jouzu no Takagi-san OP 2"
-    },
-    {
-        name:"Orange"
-    },
-    {
-        name:"Silhouette"
-    },
-    {
-        name:"Summertime"
-    },
-    {
-        name:"Homura (炎)"
-    },
-    {
-        name:"Peace Sign"
-    },
-    {
-        name:"Fireworks"
-    },
-    {
-        name:"可愛くてごめん (feat. かぴ)"
-    },
-    {
-        name:"Yunomi - ジェリーフィッシュ (feat. ローラーガール)"
-    },
-    {
-        name:"Yoru ni Kakeru夜に駆けるYOASOBI"
-    },
-    {
-        name:"Bluebird (ブルーバード) - Ikimono Gakari"
-    },
-    {
-        name:"Acoustic - Unravel"
-    },
-    {
-        name:'Kanojo Wa Tabi Ni Deru-彼女は旅に出る - Sana-鎖那'
-    }
-]
 
     //lấy data Music từ file Json 
     let takeMusic= async()=>{
@@ -156,11 +144,13 @@
                 }
                 else if(checkTime===parseInt(music.duration)-5){
                     checkTime+=1
-                    if(n===myMusic.length){
-                        x=1; 
-                        alert('Đây đã là bài hát cuối cùng!')
-                    }
-                    nextSong();
+                    takeMusic().then(myMusic=>{
+                        if(n===myMusic.length){
+                            x=1; 
+                            alert('Đây đã là bài hát cuối cùng!')
+                        }
+                        nextSong(); 
+                    })
                 }  
             }
             setTimeout(autoPlay,1000);   
@@ -197,7 +187,7 @@
     let check=1; // biến check điều kiện
     let checkBackground=(x)=>{
         if(check===1){
-            listener.innerHTML= `<img class='listenerImg' src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3fdfd8c5-0b8c-45a7-a8aa-ebc7752ae9b8/ddyndrq-1891f96b-4757-4cb8-b9c9-2ce9c044e244.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNmZGZkOGM1LTBiOGMtNDVhNy1hOGFhLWViYzc3NTJhZTliOFwvZGR5bmRycS0xODkxZjk2Yi00NzU3LTRjYjgtYjljOS0yY2U5YzA0NGUyNDQuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Cf8VyFx_wqjsQvoLc75aUc22fwzJqAq59voj4g6zVCo" alt="">
+            listener.innerHTML= `<img class='listenerImg' src="folderWibu/100988999_p0.png" alt="">
         <h1 style='position:absolute; bottom:15%'> <marquee behavior="sroll" direction="left"> Song ${n}: ${x[n-1].name} </marquee></h1>` 
         }
         else if(check===0){
@@ -249,23 +239,26 @@
     //hàm chuyển nhạc 
     let n=1;
     let nextSong=()=>{
-           if (n<=myMusic.length-1){
+        takeMusic().then(myMusic=>{
+            if (n<=myMusic.length-1){
                 music.pause(); x=0
                 n+=1; checkTime=0;
                 music= new Audio(`./music/${myMusic[n-1].name}.mp3`); 
                 checkBackground(myMusic)
                 playPause(); 
-            } 
-        
+            }  
+        })     
     };
 
     let previousSong=()=>{
         if (n>1){
+            takeMusic().then(myMusic=>{
                 music.pause(); x=0
                 n-=1; checkTime=0;
                 music= new Audio(`./music/${myMusic[n-1].name}.mp3`); 
                 checkBackground(myMusic);
                 playPause();
+            })       
         }
     };
 
@@ -276,14 +269,16 @@
         if(finder.value!==''){
                 musicName= finder.value;
                 finder.value= '';
-                for(let i=0; i<myMusic.length; i++){
-                    if (musicName===`Song ${i+1}: ${myMusic[i].name}`){
-                        music.pause(); 
-                        n=i; 
-                        nextSong()
-                        break;
-                    }            
-                }     
+                takeMusic().then(myMusic=>{
+                    for(let i=0; i<myMusic.length; i++){
+                        if (musicName===`Song ${i+1}: ${myMusic[i].name}`){
+                            music.pause(); 
+                            n=i; 
+                            nextSong()
+                            break;
+                        }            
+                    } 
+                })          
         }
               
     };
@@ -308,25 +303,27 @@
             }
             musicName= y; 
 
-            for(let i=0; i<myMusic.length; i++){
-                //Bước 2: filter tên nhạc trong file Json
-                editName=''; y= `Song ${i+1}: ${myMusic[i].name}`.toLowerCase().trim().split(' ')
-                for(let z=0;z<y.length;z++){
-                    editName=`${editName}${y[z]}`
-                }
+            takeMusic().then(myMusic=>{
+                for(let i=0; i<myMusic.length; i++){
+                    //Bước 2: filter tên nhạc trong file Json
+                    editName=''; y= `Song ${i+1}: ${myMusic[i].name}`.toLowerCase().trim().split(' ')
+                    for(let z=0;z<y.length;z++){
+                        editName=`${editName}${y[z]}`
+                    }
 
-                //Bước 3: ktra điều kiện
-                if(editName.includes(musicName)){
-                    arrSearch.push(i); //arr chứa toàn bộ kết quả tìm kiếm thỏa mãn
-                    if(arrIndex.length<5){
-                        arrIndex.push(i); //arr hiển thị, chứa max là 5 kết quả
-                        searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<div class="searchingResults" onmouseover="newResult()" style="padding:5%"> Song ${i+1}: ${myMusic[i].name}</div>`
-                    }            
+                    //Bước 3: ktra điều kiện
+                    if(editName.includes(musicName)){
+                        arrSearch.push(i); //arr chứa toàn bộ kết quả tìm kiếm thỏa mãn
+                        if(arrIndex.length<5){
+                            arrIndex.push(i); //arr hiển thị, chứa max là 5 kết quả
+                            searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<div class="searchingResults" onmouseover="newResult()" style="padding:5%"> Song ${i+1}: ${myMusic[i].name}</div>`
+                        }            
+                    }
                 }
-            }
-            if(arrIndex.length===5){
-                searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`
-            } 
+                if(arrIndex.length===5){
+                    searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`
+                } 
+            })    
         }
                 
     });
@@ -336,16 +333,19 @@
         if(arrIndex.length===5){
                 arrIndex=[];
                 searchingResultsBlock.innerHTML=``
-                for(let i=1; i<6; i++){
-                    if(arrSearch.indexOf(r)+i< arrSearch.length && arrIndex.length<5){
-                        arrIndex.push(arrSearch[arrSearch.indexOf(r)+i]); 
-                        searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<div class="searchingResults" onmouseover="newResult()" style="padding:5%"> Song ${arrSearch[arrSearch.indexOf(r)+i]+1}: ${myMusic[arrSearch[arrSearch.indexOf(r)+i]].name}</div>`    
-                    }   
-                }
-                searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<p style='float:left; padding-left:3%; cursor:pointer' onclick='clickBack(arrIndex[0])'>⬅️</p>`
-                if(arrIndex.length===5 && arrIndex[arrIndex.length-1]<arrSearch.length-1){
-                    searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`
-                }    
+                takeMusic().then(myMusic=>{
+                    for(let i=1; i<6; i++){
+                        if(arrSearch.indexOf(r)+i< arrSearch.length && arrIndex.length<5){
+                            arrIndex.push(arrSearch[arrSearch.indexOf(r)+i]); 
+                            searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<div class="searchingResults" onmouseover="newResult()" style="padding:5%"> Song ${arrSearch[arrSearch.indexOf(r)+i]+1}: ${myMusic[arrSearch[arrSearch.indexOf(r)+i]].name}</div>`    
+                        }   
+                    }
+                    searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<p style='float:left; padding-left:3%; cursor:pointer' onclick='clickBack(arrIndex[0])'>⬅️</p>`
+                    if(arrIndex.length===5 && arrIndex[arrIndex.length-1]<arrSearch.length-1){
+                        searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`
+                    }    
+                })
+
         }       
     };
 
@@ -353,27 +353,31 @@
         if(r>4){
                 arrIndex=[];
                 searchingResultsBlock.innerHTML=``
-                for(let i=-5; i<0; i++){
-                    if(arrSearch.indexOf(r)+i< arrSearch.length && arrIndex.length<5){
-                        arrIndex.push(arrSearch[arrSearch.indexOf(r)+i]); 
-                        searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<div class="searchingResults" onmouseover="newResult()" style="padding:5%">Song ${arrSearch[arrSearch.indexOf(r)+i]+1}: ${myMusic[arrSearch[arrSearch.indexOf(r)+i]].name}</div>`
-                    }        
-                }
-                searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`    
-                if(arrIndex[0]>4){
-                    searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<p style='float:left; padding-left:3%; cursor:pointer' onclick='clickBack(arrIndex[0])'>⬅️</p>`
-                } 
+                takeMusic().then(myMusic=>{
+                    for(let i=-5; i<0; i++){
+                        if(arrSearch.indexOf(r)+i< arrSearch.length && arrIndex.length<5){
+                            arrIndex.push(arrSearch[arrSearch.indexOf(r)+i]); 
+                            searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<div class="searchingResults" onmouseover="newResult()" style="padding:5%">Song ${arrSearch[arrSearch.indexOf(r)+i]+1}: ${myMusic[arrSearch[arrSearch.indexOf(r)+i]].name}</div>`
+                        }        
+                    }
+                    searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`    
+                    if(arrIndex[0]>4){
+                        searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<p style='float:left; padding-left:3%; cursor:pointer' onclick='clickBack(arrIndex[0])'>⬅️</p>`
+                    } 
+                })
         }   
     }
 
     //hàm addEvent onclick cho các SearchingResult 
     let newResult= ()=>{
+        takeMusic().then(myMusic=>{
             for(let i=0; i<arrIndex.length; i++){
                 searchingResults[i].addEventListener('click', function(){
                     finder.value= `Song ${arrIndex[i]+1}: ${myMusic[arrIndex[i]].name}`
                     searchingResultsBlock.innerHTML=``   
                 })    
             }
+        })
     }
            
 
