@@ -12,13 +12,22 @@
 <body> 
      
      <div id="background">
-        <img id='imgBackground'src="folderWibu/anime_Sword_Art_Online_anime_girls_sunset_Kirigaya_Kazuto_Yuuki_Asuna_Sun_clouds-243667.jpg" alt="">
-        <div id="picContainer"></div>
+        <video id='imgBackground' src="" autoplay></video>
+        <div id="picContainer"></div> 
+        <div id="screen"></div>
+        
         <div id="title">
             <label id='label' for="finder" class="searchBlock" style="top:1%">Tìm kiếm</label>
             <input id="finder" type="text" name='finder' placeholder=" Nhập tên nhạc muốn tìm..." class="searchBlock">       
-            <label for="finder"> <button id='search' class="searchButton">Search</button></label>   
+            <button id='search' class="searchButton">Search</button> 
         </div>
+
+        <div id='waitingScreen' style="position: fixed; width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; transition:all 5s">
+            <div style="position: absolute; background-color: rgb(240, 240, 240); width: 100%; height: 100vh; "></div>
+            <img id='innerWaitingScreen' src="https://i.pinimg.com/originals/ef/ab/94/efab94beb0245948a128e4388f973988.gif" alt="" style="position: fixed; left:-5%; transition:all 8s;">
+            <p style="position: absolute;color:rgba(0, 0, 0, 0.65); bottom:20%">Loading...</p>
+        </div> 
+
     </div>  
 
     
