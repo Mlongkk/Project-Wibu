@@ -1,9 +1,4 @@
 
-    //edit màn hình 'Click to start'
-    let screenBlock= document.getElementById('screen'); //khối chứa 
-    let inScreen= document.getElementById('inScreen');  //dòng text 'Click to start'
-    let imgBackground= document.getElementById('imgBackground') //ảnh nền 
-
     //Animation waiting Screen
     let waitingScreen= document.getElementById('waitingScreen') //khối div chứa full screen
     let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
@@ -24,18 +19,11 @@
         innerWaitingScreen.style.left='105%'
         setTimeout(()=>{
             check2=1
-            screenBlock.style.right='0'
-            screenBlock.innerHTML=`<img src="folderWibu/anime_Sword_Art_Online_anime_girls_sunset_Kirigaya_Kazuto_Yuuki_Asuna_Sun_clouds-243667.jpg" alt="" style="position: fixed; width: 100%; height: 100vh; object-fit: cover; object-position: 70% 40%;">
-                    <div style="position: absolute; background-color: rgba(0, 0, 0, 0.4); width: 100%; height: 100vh; "></div>
-            <h1 id="inScreen" style="position: absolute; "><b>&nbsp;&nbsp;Click <br>to start!</b></h1>` 
-            
             setTimeout(()=>{
                 radio.style.position='fixed';
                 waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px';  
-            },500)
-            
+            },500)    
         },6000)
-        
     }
     waitingAnimation();
 
@@ -47,15 +35,7 @@
         }
     }
 
-    //event click
-    screenBlock.addEventListener("click", function(){
-        screenBlock.style.width= '0px'; screenBlock.style.height= '0px';
-        screenBlock.innerHTML=''
-        imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"
-    });
-    
 
-    
     //lấy data ảnh từ file Json 
     let picContainer= document.getElementById('picContainer')
     let showPic= async ()=>{
