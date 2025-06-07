@@ -36,15 +36,15 @@
         <h2 id="exitButton"></h2>
         <h1 id="homeButton"><a href="index.html" >🏠︎</a></h1>
         <div id="musicScreen">
-            <button id="musicButtonprevious" style="cursor:pointer;" onclick='previousSong()'><p class="musicButton">⏮️</p></button>
-            <button id="musicButtonplay" style="cursor:pointer" onclick='playPause()'><p class="musicButton">▶️</p></button>
-            <button id='musicButtonnext' style="cursor:pointer" onclick='nextSong()'><p class="musicButton">⏭️</p></button>
+            <button id="musicButtonprevious" style="cursor:pointer; border-radius: 50%;" onclick='previousSong()'><p class="musicButton">⏮️</p></button>
+            <button id="musicButtonplay" style="cursor:pointer; border-radius: 50%;" onclick='playPause()'><p class="musicButton">▶️</p></button>
+            <button id='musicButtonnext' style="cursor:pointer; border-radius: 50%;" onclick='nextSong()'><p class="musicButton">⏭️</p></button>
         </div> 
         <div id="searchingResultsBlock"></div>
         <img id= 'gif' src="https://i.redd.it/j68updlkoyj71.gif" alt="">
     </div>
 
-    <div style="position: fixed; left:5%; bottom:28%; transition: all 1s;">
+    <div id='timeContainer' style="position: fixed; left:5%; bottom:28%; transition: all 1s;">
         <p id="musicTime"></p> 
     </div>
     
