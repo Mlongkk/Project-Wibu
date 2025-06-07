@@ -41,7 +41,7 @@
     }
 
     #musicScreen{
-        position: fixed; bottom:-70%; transition: all 1.5s;
+        position: fixed; bottom:-100%; transition: all 1.5s;
     }
 
     #contain2{
