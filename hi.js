@@ -47,6 +47,7 @@
         }
     }
 
+
     //event click
     screenBlock.addEventListener("click", function(){
         screenBlock.style.width= '0px'; screenBlock.style.height= '0px';
@@ -87,10 +88,10 @@
 
             if(x-check1>=0){
                 if(check1===48){
-                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious'style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1)'>&laquo; Previous</h1>`
+                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious'style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1)'>&laquo; Back</h1>`
                 }
                 else{
-                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious' style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1-24)'>&laquo; Previous</h1>`
+                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious' style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1-24)'>&laquo; Back</h1>`
                 }
                 
             }
@@ -223,17 +224,19 @@
             listener.style.width= '0'; listener.style.height= '0';
             contain2.style.width= '0'; contain2.style.height= '0';
             listener.innerHTML= ''; musicScreen.style.transition='all 0s'
-            musicScreen.style.bottom='-50%'; exitButton.innerHTML=''
+            musicScreen.style.bottom='-70%'; exitButton.innerHTML=''
             searchingResultsBlock.innerHTML=``; homeButton.innerHTML='🏠︎'
         }
     }
 
     radio.addEventListener('click', radioSetting);
+
     exitButton.addEventListener('click', function(){
+        d=0; timeContainer.style.left='-50%';
         listener.style.width= '0'; listener.style.height= '0';
         contain2.style.width= '0'; contain2.style.height= '0';
         listener.innerHTML= ''; musicScreen.style.transition='all 0s'
-        musicScreen.style.bottom='-50%'; exitButton.innerHTML=''
+        musicScreen.style.bottom='-70%'; exitButton.innerHTML=''
         searchingResultsBlock.innerHTML=``; homeButton.innerHTML='🏠︎'
     })
     
