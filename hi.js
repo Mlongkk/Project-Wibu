@@ -64,13 +64,13 @@
         return data;
     }
 
-    let v; let a=0; let b=0; let check1=54 //đây là các biến lưu trữ của hàm changePic()
+    let v; let a=0; let b=0; let check1=48 //đây là các biến lưu trữ của hàm changePic()
     let changePic=(x)=>{
         document.body.scrollTop=0; document.documentElement.scrollTop=0;
-        picContainer.innerHTML=''; check1=54;
+        picContainer.innerHTML=''; check1=48;
         showPic().then(data=>{
             b=x; a=x;
-            for(let i=1;i<28;i++){
+            for(let i=1;i<25;i++){
                 a+=1; x+=1
                 if(x<data.length){
                     picContainer.innerHTML= `${picContainer.innerHTML}<button class='picBlock'> <img class='pic' onmouseover='hoverPic()' src="./folderWibu/${data[x-1].name}" </button>` 
@@ -82,15 +82,15 @@
             }
 
             if(x<data.length){
-                picContainer.innerHTML= `${picContainer.innerHTML} <h1 style='float:right; padding:3%; cursor: pointer' onclick='changePic(a)'>➡️</h1>`
+                picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious' style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a)'>Next &raquo;</h1>`
             }
 
             if(x-check1>=0){
-                if(check1===54){
-                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 style='float:right; padding:3%; cursor: pointer' onclick='changePic(a-check1)'>⬅️</h1>`
+                if(check1===48){
+                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious'style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1)'>&laquo; Previous</h1>`
                 }
                 else{
-                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 style='float:right; padding:3%; cursor: pointer' onclick='changePic(a-check1-27)'>⬅️</h1>`
+                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious' style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1-24)'>&laquo; Previous</h1>`
                 }
                 
             }
@@ -105,7 +105,7 @@
     let pic= document.getElementsByClassName('pic');
     let picBlock= document.getElementsByClassName('picBlock')
     let hoverPic=()=>{
-        for(let i=0;i<27;i++){
+        for(let i=0;i<24;i++){
             if(i+b<a){
                 pic[i].addEventListener('click', function(){
                     check=0; v=i+b
@@ -130,7 +130,8 @@
     let music= new Audio('./music/Lemon.mp3'); //audio khởi tạo
     let checkTime=0; //thời gian nhạc hiện tại
     let autoRunRadio='Off'; //biến check điều kiện
-    let musicTime= document.getElementById('musicTime'); //khối chứa currentTime và endTime
+    let musicTime= document.getElementById('musicTime'); //text chứa currentTime và endTime
+    let timeContainer= document.getElementById('timeContainer') //khối chứa currentTime và endTime
     let x=0; //biến check điều kiện
 
     //hàm autoplay nhạc 
@@ -181,7 +182,7 @@
     let search= document.getElementById('search') //nút search
     let musicScreen= document.getElementById('musicScreen') //khối chứa các button playPause
     let exitButton= document.getElementById('exitButton') //nút thoát background nhạc
-    let homeButton= document.getElementById('homeButton')
+    let homeButton= document.getElementById('homeButton')// nút về trang chủ
     
     //hàm check background Music
     let check=1; // biến check điều kiện
@@ -207,7 +208,8 @@
                 listener.style.height='100%'; listener.style.width='100%'
                 contain2.style.width= '100%'; contain2.style.height= '100%';
                 musicScreen.style.transition='all 1.5s'; musicScreen.style.bottom='2%'; 
-                searchingResultsBlock.innerHTML=``; exitButton.innerHTML='❎'; homeButton.innerHTML=''
+                searchingResultsBlock.innerHTML=``; exitButton.innerHTML='❎'; homeButton.innerHTML='';
+                timeContainer.style.left='5%'
                 if(autoRunRadio==="Off"){
                     autoRunRadio= 'On'
                     setTimeout(autoPlay,1000)
@@ -217,7 +219,7 @@
         }
         
         else{
-            d=0;
+            d=0; timeContainer.style.left='-50%';
             listener.style.width= '0'; listener.style.height= '0';
             contain2.style.width= '0'; contain2.style.height= '0';
             listener.innerHTML= ''; musicScreen.style.transition='all 0s'
