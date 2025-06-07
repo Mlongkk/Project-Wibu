@@ -224,7 +224,7 @@
             listener.style.width= '0'; listener.style.height= '0';
             contain2.style.width= '0'; contain2.style.height= '0';
             listener.innerHTML= ''; musicScreen.style.transition='all 0s'
-            musicScreen.style.bottom='-70%'; exitButton.innerHTML=''
+            musicScreen.style.bottom='-100%'; exitButton.innerHTML=''
             searchingResultsBlock.innerHTML=``; homeButton.innerHTML='🏠︎'
         }
     }
@@ -236,7 +236,7 @@
         listener.style.width= '0'; listener.style.height= '0';
         contain2.style.width= '0'; contain2.style.height= '0';
         listener.innerHTML= ''; musicScreen.style.transition='all 0s'
-        musicScreen.style.bottom='-70%'; exitButton.innerHTML=''
+        musicScreen.style.bottom='-100%'; exitButton.innerHTML=''
         searchingResultsBlock.innerHTML=``; homeButton.innerHTML='🏠︎'
     })
     
@@ -269,21 +269,21 @@
 
 
     //hàm của nút 'Search'
-    let musicName=''; 
+    let filterSearch= document.getElementById('filterSearch')
     let searchMusic= ()=>{
         if(finder.value!==''){
-                musicName= finder.value;
-                finder.value= '';
-                takeMusic().then(myMusic=>{
-                    for(let i=0; i<myMusic.length; i++){
-                        if (musicName===`Song ${i+1}: ${myMusic[i].name}`){
-                            music.pause(); 
-                            n=i; 
-                            nextSong()
-                            break;
-                        }            
-                    } 
-                })          
+            filterSearch.innerText= (finder.value).toLowerCase();
+            finder.value= '';
+            takeMusic().then(myMusic=>{
+                for(let i=0; i<myMusic.length; i++){
+                    if (filterSearch.innerText===(`Song ${i+1}: ${myMusic[i].name}`).toLowerCase()){
+                        music.pause(); n=i; 
+                        searchingResultsBlock.innerHTML=``; radioSetting()
+                        nextSong()
+                        break;
+                    }            
+                } 
+            })          
         }
               
     };
@@ -293,31 +293,27 @@
     //edit hàm filter kết quả nhạc
     let searchingResultsBlock= document.getElementById('searchingResultsBlock'); //khối chứa các kết quả tìm kiếm
     let searchingResults= document.getElementsByClassName('searchingResults'); //các kết quả tìm kiếm nhạc
-    let editName=''; let y=''; //đây là 2 biến dùng để filter tên nhạc
     let arrIndex=[]; let arrSearch=[]; //đây là 2 arr chứa các kết quả tìm kiếm thỏa mãn
-
+    
+    //đây là 2 thẻ <p> giúp filter kết quả tìm kiếm
+    let filter1= document.getElementById('filter1');
+    let filter2= document.getElementById('filter2');
+    
     finder.addEventListener('keyup', function(){
-        arrIndex=[]; arrSearch=[]; y=''
-        searchingResultsBlock.innerHTML=``
+        arrIndex=[]; arrSearch=[];
+        searchingResultsBlock.innerHTML=``;
+
         if(finder.value!==''){
-            musicName= (finder.value).toLowerCase().trim().split(' ')
-
             //Bước 1: filter kết quả tìm kiếm
-            for(let i=0; i<musicName.length; i++){
-                y= `${y}${musicName[i]}`
-            }
-            musicName= y; 
-
+            filter1.innerText= (finder.value).toLowerCase()
+            
+            //Bước 2: filter tên nhạc trong file Json
             takeMusic().then(myMusic=>{
                 for(let i=0; i<myMusic.length; i++){
-                    //Bước 2: filter tên nhạc trong file Json
-                    editName=''; y= `Song ${i+1}: ${myMusic[i].name}`.toLowerCase().trim().split(' ')
-                    for(let z=0;z<y.length;z++){
-                        editName=`${editName}${y[z]}`
-                    }
+                    filter2.innerText= `Song ${i+1}: ${myMusic[i].name}`.toLowerCase()
 
                     //Bước 3: ktra điều kiện
-                    if(editName.includes(musicName)){
+                    if(filter2.innerText.includes(filter1.innerText)){
                         arrSearch.push(i); //arr chứa toàn bộ kết quả tìm kiếm thỏa mãn
                         if(arrIndex.length<5){
                             arrIndex.push(i); //arr hiển thị, chứa max là 5 kết quả
@@ -325,6 +321,7 @@
                         }            
                     }
                 }
+
                 if(arrIndex.length===5){
                     searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`
                 } 
