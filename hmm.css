@@ -120,7 +120,7 @@
     }
 
     #exitButton{
-        position: fixed; right: 0; top:-3%; cursor: pointer; font-style: normal; opacity: 0.9;
+        position: fixed; right: 0; top:-2%; cursor: pointer; font-style: normal; opacity: 0.9;
     }
 
     #exitButton:hover{
