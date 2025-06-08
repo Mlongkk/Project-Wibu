@@ -1,12 +1,8 @@
 
-    //edit màn hình 'Click to start'
-    let screenBlock= document.getElementById('screen'); //khối chứa 
-    let inScreen= document.getElementById('inScreen');  //dòng text 'Click to start'
-    let imgBackground= document.getElementById('imgBackground') //ảnh nền 
-
     //Animation waiting Screen
     let waitingScreen= document.getElementById('waitingScreen') //khối div chứa full screen
     let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
+    let imgBackground= document.getElementById('imgBackground') //ảnh nền 
     let check2=0 //biến đê thoát hàm resetGif
 
     //do Gif hay bị lỗi nên phải tạo hàm để reset lại
@@ -21,20 +17,11 @@
 
     //hàm thoát waiting Screen
     let waitingAnimation=()=>{
-        innerWaitingScreen.style.left='105%'
+        innerWaitingScreen.style.left='105%'; 
         setTimeout(()=>{
-            check2=1
-            screenBlock.style.right='0'
-            screenBlock.innerHTML=`<img src="folderWibu/anime_Sword_Art_Online_anime_girls_sunset_Kirigaya_Kazuto_Yuuki_Asuna_Sun_clouds-243667.jpg" alt="" style="position: fixed; width: 100%; height: 100vh; object-fit: cover; object-position: 70% 40%;">
-                    <div style="position: absolute; background-color: rgba(0, 0, 0, 0.4); width: 100%; height: 100vh; "></div>
-            <h1 id="inScreen" style="position: absolute; "><b>&nbsp;&nbsp;Click <br>to start!</b></h1>` 
-            
-            setTimeout(()=>{
-                radio.style.position='fixed';
-                waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px';  
-            },500)
-            
-        },6000)
+            check2=1; imgBackground.src= "gundam-witch-mercury.1920x1080.mp4";
+            waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px';       
+        },8000)
         
     }
     waitingAnimation();
@@ -46,16 +33,7 @@
             imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"
         }
     }
-
-
-    //event click
-    screenBlock.addEventListener("click", function(){
-        screenBlock.style.width= '0px'; screenBlock.style.height= '0px';
-        screenBlock.innerHTML=''
-        imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"
-    });
     
-
     
     //lấy data ảnh từ file Json 
     let picContainer= document.getElementById('picContainer')
@@ -189,13 +167,13 @@
     let check=1; // biến check điều kiện
     let checkBackground=(x)=>{
         if(check===1){
-            listener.innerHTML= `<img class='listenerImg' src="folderWibu/100988999_p0.png" alt="">
-        <h1 style='position:absolute; bottom:15%'> <marquee behavior="sroll" direction="left"> Song ${n}: ${x[n-1].name} </marquee></h1>` 
+            listener.innerHTML= `<img class='backgroundMusic' src="folderWibu/100988999_p0.png" alt=""> <div class='backgroundMusic' style="position: absolute; background-color: rgba(0, 0, 0, 0.15); "></div>
+        <h1 style='position:absolute; bottom:15%;'> <marquee behavior="sroll" direction="left"> Song ${n}: ${x[n-1].name} </marquee></h1>` 
         }
         else if(check===0){
             showPic().then(data=>{
-                listener.innerHTML= `<img id='backgroundMusic' src="folderWibu/${data[v].name}" alt="">
-            <h1 style='position:absolute; bottom:15%'> <marquee behavior="sroll" direction="left"> Song ${n}: ${x[n-1].name} </marquee></h1>` 
+                listener.innerHTML= `<img class='backgroundMusic' src="folderWibu/${data[v].name}" alt=""> <div class='backgroundMusic' style="position: absolute; background-color: rgba(0, 0, 0, 0.15);"></div>
+            <h1 style='position:absolute; bottom:15%;'> <marquee behavior="sroll" direction="left"> Song ${n}: ${x[n-1].name} </marquee></h1>` 
             })   
         }
     }
