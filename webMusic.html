@@ -16,39 +16,42 @@
         <video id='imgBackground' src="gundam-witch-mercury.1920x1080.mp4" autoplay></video>
         <div style="position: absolute; background-color: rgba(0, 0, 0, 0.3); width: 100%; height: 100vh; "></div>
         <div id="picContainer"></div> 
-        <div id="screen"></div>
-        
-        <div id="title">
-            <label id='label' for="finder" class="searchBlock" style="top:1%">Tìm kiếm</label>
-            <input id="finder" type="text" name='finder' placeholder=" Nhập tên nhạc muốn tìm..." class="searchBlock">       
-            <button id='search' class="searchButton">Search</button> 
-        </div>
-
-        <div id='waitingScreen' style="position: fixed; width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; transition:all 5s">
-            <div style="position: absolute; background-color: rgb(240, 240, 240); width: 100%; height: 100vh; "></div>
-            <img id='innerWaitingScreen' src="https://i.pinimg.com/originals/ef/ab/94/efab94beb0245948a128e4388f973988.gif" alt="" style="position: fixed; left:-5%; transition:all 8s;">
-            <p style="position: absolute;color:rgba(0, 0, 0, 0.65); bottom:20%">Loading...</p>
-        </div> 
-
     </div>  
 
     
     <div id="contain2">
         <div id="listener"></div>
-        <h2 id="exitButton"></h2>
-        <h1 id="homeButton"><a href="index.html" >🏠︎</a></h1>
         <div id="musicScreen">
             <button id="musicButtonprevious" style="cursor:pointer; border-radius: 50%; border:0px" onclick='previousSong()'><p class="musicButton">⏮️</p></button>
             <button id="musicButtonplay" style="cursor:pointer; border-radius: 50%; border:0px" onclick='playPause()'><p class="musicButton">▶️</p></button>
             <button id='musicButtonnext' style="cursor:pointer; border-radius: 50%; border:0px" onclick='nextSong()'><p class="musicButton">⏭️</p></button>
         </div> 
-        <div id="searchingResultsBlock"></div>
         <img id= 'gif' src="https://i.redd.it/j68updlkoyj71.gif" alt="">
     </div>
+
+
+    <div id="title">
+        <h2 id="exitButton"></h2>
+        <h1 id="homeButton"><a href="index.html" >🏠︎</a></h1>
+        <label id='label' for="finder" class="searchBlock" style="top:1%">Tìm kiếm</label>
+        <input id="finder" type="text" name='finder' placeholder=" Nhập tên nhạc muốn tìm..." class="searchBlock">       
+        <button id='search' class="searchButton">Search</button> 
+        <div id="searchingResultsBlock"></div>
+    </div>
+
+
+    <div id='waitingScreen' style="position: fixed; width: 100%; height: 100vh; display: flex; justify-content: center; align-items: center; transition:all 5s; top:0">
+        <div style="position: absolute; background-color: rgb(240, 240, 240); width: 100%; height: 100vh; "></div>
+        <img id='innerWaitingScreen' src="https://i.pinimg.com/originals/ef/ab/94/efab94beb0245948a128e4388f973988.gif" alt="" style="position: fixed; left:-5%; transition:all 10s;">
+        <p style="position: absolute;color:rgba(0, 0, 0, 0.65); bottom:20%">Loading... <br></p>
+        <p style="position: absolute;color:#04AA6D; bottom:10%; ">"Cảm ơn vì đã ủng hộ dự án của chúng tớ ^_^!"</p>
+    </div> 
+
 
     <div id='timeContainer' style="position: fixed; left:5%; bottom:28%; transition: all 1s;">
         <p id="musicTime"></p> 
     </div>
+    
     
     <div>
         <p id="filter1"></p>
