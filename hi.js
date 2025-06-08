@@ -43,13 +43,13 @@
         return data;
     }
 
-    let v; let a=0; let b=0; let check1=48 //đây là các biến lưu trữ của hàm changePic()
+    let v; let a=0; let b=0; let check1=42 //đây là các biến lưu trữ của hàm changePic()
     let changePic=(x)=>{
         document.body.scrollTop=0; document.documentElement.scrollTop=0;
-        picContainer.innerHTML=''; check1=48;
+        picContainer.innerHTML=''; check1=42;
         showPic().then(data=>{
             b=x; a=x;
-            for(let i=1;i<25;i++){
+            for(let i=1;i<22;i++){
                 a+=1; x+=1
                 if(x<data.length){
                     picContainer.innerHTML= `${picContainer.innerHTML}<button class='picBlock'> <img class='pic' onmouseover='hoverPic()' src="./folderWibu/${data[x-1].name}" </button>` 
@@ -84,7 +84,7 @@
     let pic= document.getElementsByClassName('pic');
     let picBlock= document.getElementsByClassName('picBlock')
     let hoverPic=()=>{
-        for(let i=0;i<24;i++){
+        for(let i=0;i<21;i++){
             if(i+b<a){
                 pic[i].addEventListener('click', function(){
                     check=0; v=i+b
@@ -96,14 +96,12 @@
     }
  
 
-
-    //lấy data Music từ file Json 
+    //lấy data Music từ file Json
     let takeMusic= async()=>{
         let response= await fetch('myMusic.json')
-        let data= await response.json()
-        return data
+        let myMusic= await response.json()
+        return myMusic    
     }
-    
 
     //music
     let music= new Audio('./music/Lemon.mp3'); //audio khởi tạo
@@ -256,8 +254,10 @@
                 for(let i=0; i<myMusic.length; i++){
                     if (filterSearch.innerText===(`Song ${i+1}: ${myMusic[i].name}`).toLowerCase()){
                         music.pause(); n=i; 
-                        searchingResultsBlock.innerHTML=``; radioSetting()
-                        nextSong()
+                        searchingResultsBlock.innerHTML=``; nextSong()
+                        if(d===0){
+                          radioSetting()  
+                        }
                         break;
                     }            
                 } 
