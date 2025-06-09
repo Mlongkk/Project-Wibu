@@ -21,7 +21,7 @@
         setTimeout(()=>{
             changePic(a) //kích hoạt changePic ngay sau khi load trang
         },5000)
-        
+
         setTimeout(()=>{
             check2=1; imgBackground.src= "gundam-witch-mercury.1920x1080.mp4";
 
@@ -196,7 +196,7 @@
 
 
     //create event cho radio (gif)
-    let radio= document.getElementById('gif');  //ảnh gif
+    // let radio= document.getElementById('gif');  //ảnh gif
     let listener= document.getElementById('listener'); //khối chứa ảnh nền của Music
     let contain2= document.getElementById('contain2') //khối div chứa các phần liên quan đến Music
     let finder= document.getElementById('finder') // thanh tìm kiếm nhạc
@@ -250,15 +250,10 @@
         }
     }
 
-    radio.addEventListener('click', radioSetting);
+    // radio.addEventListener('click', radioSetting);
 
     exitButton.addEventListener('click', function(){
-        d=0; timeContainer.style.left='-50%';
-        listener.style.width= '0'; listener.style.height= '0';
-        contain2.style.width= '0'; contain2.style.height= '0';
-        listener.innerHTML= ''; musicScreen.style.transition='all 0s'
-        musicScreen.style.bottom='-100%'; exitButton.innerHTML=''
-        searchingResultsBlock.innerHTML=``; homeButton.innerHTML=`<a href="index.html" >🏠︎</a>`
+        d=1; radioSetting()
     })
     
 
