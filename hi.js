@@ -94,17 +94,39 @@
             else break;
         }   
     }
- 
+    
+
+    //hàm lấy nhạc ngẫu nhiên
+    let p=0; let myRandomMusic=[]; 
+
+    let randomMusic= (x,y)=>{
+        p=Math.floor(Math.random() * y.length);
+        if(!x.includes(y[p])&& x.length<y.length){
+            x.push(y[p]) 
+        }
+
+        if(x.length<y.length){
+            randomMusic(x,y)
+        }  
+        
+        if(x.length===y.length){
+            return x
+        }
+    }
 
     //lấy data Music từ file Json
     let takeMusic= async()=>{
         let response= await fetch('myMusic.json')
         let myMusic= await response.json()
-        return myMusic    
+        return randomMusic(myRandomMusic,myMusic)   
     }
 
     //music
-    let music= new Audio('./music/Lemon.mp3'); //audio khởi tạo
+    let music= ''; //audio khởi tạo
+    takeMusic().then(myMusic=>{
+        music= new Audio(`./music/${myMusic[0].name}.mp3`)
+    })
+
     let checkTime=0; //thời gian nhạc hiện tại
     let autoRunRadio='Off'; //biến check điều kiện
     let musicTime= document.getElementById('musicTime'); //text chứa currentTime và endTime
@@ -361,7 +383,6 @@
     }
            
 
-    
 
 
     
