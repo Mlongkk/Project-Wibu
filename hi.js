@@ -20,7 +20,8 @@
         innerWaitingScreen.style.left='105%'; 
         setTimeout(()=>{
             check2=1; imgBackground.src= "gundam-witch-mercury.1920x1080.mp4";
-            waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px';       
+            waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
+            changePic(a) //kích hoạt changePic ngay sau khi load trang
         },8000)
         
     }
@@ -34,22 +35,41 @@
         }
     }
     
+
+    //hàm lấy ảnh ngẫu nhiên
+    let q=0; let myRandomPic=[]; 
+
+    let randomPic= (x,y)=>{
+        q=Math.floor(Math.random() * y.length);
+        if(!x.includes(y[q])&& x.length<y.length){
+            x.push(y[q]) 
+        }
+
+        if(x.length<y.length){
+            randomPic(x,y)
+        }  
+        
+        if(x.length===y.length){
+            return x
+        }
+    }
     
     //lấy data ảnh từ file Json 
     let picContainer= document.getElementById('picContainer')
     let showPic= async ()=>{
         let response= await fetch('file_list.json');
         let data= await response.json();
-        return data;
+        return randomPic(myRandomPic,data);
     }
 
-    let v; let a=0; let b=0; let check1=42 //đây là các biến lưu trữ của hàm changePic()
+
+    let v; let a=0; let b=0; let check1=36 //đây là các biến lưu trữ của hàm changePic()
     let changePic=(x)=>{
         document.body.scrollTop=0; document.documentElement.scrollTop=0;
-        picContainer.innerHTML=''; check1=42;
+        picContainer.innerHTML=''; check1=36;
         showPic().then(data=>{
             b=x; a=x;
-            for(let i=1;i<22;i++){
+            for(let i=1;i<19;i++){
                 a+=1; x+=1
                 if(x<data.length){
                     picContainer.innerHTML= `${picContainer.innerHTML}<button class='picBlock'> <img class='pic' onmouseover='hoverPic()' src="./folderWibu/${data[x-1].name}" </button>` 
@@ -65,7 +85,7 @@
             }
 
             if(x-check1>=0){
-                if(check1===48){
+                if(check1===36){
                     picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious'style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1)'>&laquo; Back</h1>`
                 }
                 else{
@@ -76,15 +96,13 @@
         })
     }
     
-    //kích hoạt hàm ngay từ khi load trang
-    changePic(a)
     
 
     //khối chứa ảnh và hàm click thay ảnh trong Music
     let pic= document.getElementsByClassName('pic');
     let picBlock= document.getElementsByClassName('picBlock')
     let hoverPic=()=>{
-        for(let i=0;i<21;i++){
+        for(let i=0;i<18;i++){
             if(i+b<a){
                 pic[i].addEventListener('click', function(){
                     check=0; v=i+b
