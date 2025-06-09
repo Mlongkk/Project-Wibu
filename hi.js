@@ -93,7 +93,7 @@
                     picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious'style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1)'>&laquo; Back</h1>`
                 }
                 else{
-                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious' style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1-24)'>&laquo; Back</h1>`
+                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious' style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1-18)'>&laquo; Back</h1>`
                 }
                 
             }
