@@ -86,7 +86,7 @@
     }
 
     .picBlock:hover{
-        opacity: 0.8; background-color: #5c6bc0; box-shadow: 0 0 10px #ffbde0;
+        opacity: 0.8; box-shadow: 0 0 10px #ffbde0;
     }
 
     .pic{
