@@ -67,13 +67,13 @@
     }
 
 
-    let v; let a=0; let b=0; let check1=36 //đây là các biến lưu trữ của hàm changePic()
+    let v; let a=0; let b=0; let check1=30 //đây là các biến lưu trữ của hàm changePic()
     let changePic=(x)=>{
         document.body.scrollTop=0; document.documentElement.scrollTop=0;
-        picContainer.innerHTML=''; check1=36;
+        picContainer.innerHTML=''; check1=30;
         showPic().then(data=>{
             b=x; a=x;
-            for(let i=1;i<19;i++){
+            for(let i=1;i<16;i++){
                 a+=1; x+=1
                 if(x<data.length){
                     picContainer.innerHTML= `${picContainer.innerHTML}<button class='picBlock'> <img class='pic' onmouseover='hoverPic()' src="./folderWibu/${data[x-1].name}" </button>` 
@@ -89,11 +89,11 @@
             }
 
             if(x-check1>=0){
-                if(check1===36){
+                if(check1===30){
                     picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious'style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1)'>&laquo; Back</h1>`
                 }
                 else{
-                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious' style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1-18)'>&laquo; Back</h1>`
+                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious' style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1-15)'>&laquo; Back</h1>`
                 }
                 
             }
@@ -106,7 +106,7 @@
     let pic= document.getElementsByClassName('pic');
     let picBlock= document.getElementsByClassName('picBlock')
     let hoverPic=()=>{
-        for(let i=0;i<18;i++){
+        for(let i=0;i<15;i++){
             if(i+b<a){
                 pic[i].addEventListener('click', function(){
                     check=0; v=i+b
