@@ -19,9 +19,13 @@
     let waitingAnimation=()=>{
         innerWaitingScreen.style.left='105%'; 
         setTimeout(()=>{
-            check2=1; imgBackground.src= "gundam-witch-mercury.1920x1080.mp4";
-            waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
             changePic(a) //kích hoạt changePic ngay sau khi load trang
+        },5000)
+        
+        setTimeout(()=>{
+            check2=1; imgBackground.src= "gundam-witch-mercury.1920x1080.mp4";
+
+            waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
         },8000)
         
     }
@@ -29,11 +33,11 @@
 
 
     //hàm auto chạy khi cửa sổ kéo xuống 200px, tác dụng: reset Video background
-    window.onscroll=()=>{
-        if(document.body.scrollTop===200 || document.documentElement.scrollTop===200){
-            imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"
-        }
-    }
+    // window.onscroll=()=>{
+    //     if(document.body.scrollTop===200 || document.documentElement.scrollTop===200){
+    //         imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"
+    //     }
+    // }
     
 
     //hàm lấy ảnh ngẫu nhiên
@@ -153,25 +157,26 @@
 
     //hàm autoplay nhạc 
     let autoPlay=()=>{ 
-            checkTime= parseInt(checkTime)
-            musicTime.innerHTML= `Current time: ${checkTime}s <br>
-                                End time: ${parseInt(music.duration)-5}s`;
-            if(!music.paused){
+        checkTime= parseInt(checkTime)
+        musicTime.innerHTML= `Current time: ${checkTime}s <br>
+                            End time: ${parseInt(music.duration)-5}s`;
+        takeMusic().then(myMusic=>{
+            if(musicButtonplay.innerHTML==='<p class="musicButton">⏸️</p>'){
                 if(checkTime<parseInt(music.duration)-5){
                     checkTime+=1
                 }
                 else if(checkTime===parseInt(music.duration)-5){
                     checkTime+=1
-                    takeMusic().then(myMusic=>{
-                        if(n===myMusic.length){
-                            x=1; 
-                            alert('Đây đã là bài hát cuối cùng!')
-                        }
-                        nextSong(); 
-                    })
+                    if(n===myMusic.length){
+                        x=1; 
+                        alert('Đây đã là bài hát cuối cùng!')
+                    }
+                    nextSong();    
                 }  
             }
-            setTimeout(autoPlay,1000);   
+        })
+        
+        setTimeout(autoPlay,1000);   
     };
     
     //hàm playPause music
