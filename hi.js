@@ -20,16 +20,15 @@
     let waitingAnimation=()=>{
 
         setTimeout(()=>{
-            changePic(a) //kích hoạt changePic ngay sau khi load trang
-            imgBackground.src= "gundam-witch-mercury.1920x1080.mp4";
-        },10500)
+            changePic(a) //kích hoạt changePic ngay sau khi load trang    
+        },10000)
 
         setTimeout(()=>{
             picContainer.style.zIndex='2'
-        },15000)
+        },14600)
 
         setTimeout(()=>{
-            check2=1; 
+            check2=1; imgBackground.src= "gundam-witch-mercury.1920x1080.mp4";
             waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
         },11000)
         
