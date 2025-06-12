@@ -17,16 +17,14 @@
 
     //hàm thoát waiting Screen
     let waitingAnimation=()=>{
-        innerWaitingScreen.style.left='105%'; 
         setTimeout(()=>{
             changePic(a) //kích hoạt changePic ngay sau khi load trang
-        },5000)
+        },14500)
 
         setTimeout(()=>{
             check2=1; imgBackground.src= "gundam-witch-mercury.1920x1080.mp4";
-
             waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
-        },8000)
+        },11000)
         
     }
     waitingAnimation();
