@@ -4,8 +4,7 @@
     let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
     let imgBackground= document.getElementById('imgBackground') //ảnh nền 
     let check2=0 //biến đê thoát hàm resetGif
-    let background= document.getElementById('background')
-    let overlay= document.getElementById('overlay')
+    let background= document.getElementById('background')// khối div chứa nền
 
     //do Gif hay bị lỗi nên phải tạo hàm để reset lại
     let resetGif=()=>{
@@ -29,7 +28,7 @@
         },10500)
 
         setTimeout(()=>{
-            imgBackground.style.zIndex='-1';
+            imgBackground.style.zIndex='0';
         },13500)
 
         setTimeout(()=>{
