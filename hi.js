@@ -5,6 +5,7 @@
     let imgBackground= document.getElementById('imgBackground') //ảnh nền 
     let check2=0 //biến đê thoát hàm resetGif
     let background= document.getElementById('background')
+    let overlay= document.getElementById('overlay')
 
     //do Gif hay bị lỗi nên phải tạo hàm để reset lại
     let resetGif=()=>{
@@ -21,14 +22,18 @@
 
         setTimeout(()=>{
             changePic(a) //kích hoạt changePic ngay sau khi load trang    
-        },9000)
+        },8000)
 
         setTimeout(()=>{
-            picContainer.style.zIndex='2'
-        },14600)
+           imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"; 
+        },10500)
 
         setTimeout(()=>{
-            check2=1; imgBackground.src= "gundam-witch-mercury.1920x1080.mp4";
+            imgBackground.style.zIndex='-1';
+        },13500)
+
+        setTimeout(()=>{
+            check2=1; 
             waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
         },11000)
         
