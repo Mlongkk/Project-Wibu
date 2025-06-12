@@ -101,7 +101,7 @@
     }
 
     #musicScreen button:hover{
-        opacity: 0.8; transition: all 0.7s;
+        opacity: 0.8; transition: all 0.5s;
     }
 
     .searchBlock{
