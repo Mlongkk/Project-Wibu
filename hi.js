@@ -159,13 +159,13 @@
     let autoPlay=()=>{ 
         checkTime= parseInt(checkTime)
         musicTime.innerHTML= `Current time: ${checkTime}s <br>
-                            End time: ${parseInt(music.duration)-5}s`;
+                            End time: ${parseInt(music.duration)-3}s`;
         takeMusic().then(myMusic=>{
             if(musicButtonplay.innerHTML==='<p class="musicButton">⏸️</p>'){
-                if(checkTime<parseInt(music.duration)-5){
+                if(checkTime<parseInt(music.duration)-3){
                     checkTime+=1
                 }
-                else if(checkTime===parseInt(music.duration)-5){
+                else if(checkTime===parseInt(music.duration)-3){
                     checkTime+=1
                     if(n===myMusic.length){
                         x=1; 
