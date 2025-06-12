@@ -21,7 +21,7 @@
 
         setTimeout(()=>{
             changePic(a) //kích hoạt changePic ngay sau khi load trang    
-        },10000)
+        },9000)
 
         setTimeout(()=>{
             picContainer.style.zIndex='2'
