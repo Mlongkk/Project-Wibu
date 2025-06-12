@@ -4,6 +4,7 @@
     let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
     let imgBackground= document.getElementById('imgBackground') //ảnh nền 
     let check2=0 //biến đê thoát hàm resetGif
+    let background= document.getElementById('background')
 
     //do Gif hay bị lỗi nên phải tạo hàm để reset lại
     let resetGif=()=>{
@@ -17,12 +18,18 @@
 
     //hàm thoát waiting Screen
     let waitingAnimation=()=>{
-        setTimeout(()=>{
-            changePic(a) //kích hoạt changePic ngay sau khi load trang
-        },14500)
 
         setTimeout(()=>{
-            check2=1; imgBackground.src= "gundam-witch-mercury.1920x1080.mp4";
+            changePic(a) //kích hoạt changePic ngay sau khi load trang
+            imgBackground.src= "gundam-witch-mercury.1920x1080.mp4";
+        },10500)
+
+        setTimeout(()=>{
+            picContainer.style.zIndex='2'
+        },15000)
+
+        setTimeout(()=>{
+            check2=1; 
             waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
         },11000)
         
