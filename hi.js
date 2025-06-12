@@ -28,10 +28,6 @@
         },10500)
 
         setTimeout(()=>{
-            imgBackground.style.zIndex='0';
-        },13500)
-
-        setTimeout(()=>{
             check2=1; 
             waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
         },11000)
