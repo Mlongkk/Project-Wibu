@@ -45,21 +45,19 @@
     
 
     //hàm lấy ảnh ngẫu nhiên
-    let q=0; let myRandomPic=[]; 
+    let q=0; let myRandomPic=[];
 
     let randomPic= (x,y)=>{
-        q=Math.floor(Math.random() * y.length);
-        if(!x.includes(y[q])&& x.length<y.length){
-            x.push(y[q]) 
+        if(x.length===0){
+            for(let i=0;i<y.length;i++){
+                q=Math.floor(Math.random() * y.length); [y[i],y[q]]=[y[q],y[i]]; //hoán vị
+                if(!x.includes(y[i])){
+                    x.push(y[i])
+                }
+                else x.push(y[q])        
+            } 
         }
-
-        if(x.length<y.length){
-            randomPic(x,y)
-        }  
-        
-        if(x.length===y.length){
-            return x
-        }
+        return x
     }
     
     //lấy data ảnh từ file Json 
@@ -122,30 +120,14 @@
     }
     
 
-    //hàm lấy nhạc ngẫu nhiên
-    let p=0; let myRandomMusic=[]; 
-
-    let randomMusic= (x,y)=>{
-        p=Math.floor(Math.random() * y.length);
-        if(!x.includes(y[p])&& x.length<y.length){
-            x.push(y[p]) 
-        }
-
-        if(x.length<y.length){
-            randomMusic(x,y)
-        }  
-        
-        if(x.length===y.length){
-            return x
-        }
-    }
-
     //lấy data Music từ file Json
+    let myRandomMusic=[]; 
     let takeMusic= async()=>{
         let response= await fetch('myMusic.json')
         let myMusic= await response.json()
-        return randomMusic(myRandomMusic,myMusic)   
+        return randomPic(myRandomMusic,myMusic)   
     }
+
 
     //music
     let music= ''; //audio khởi tạo
