@@ -344,7 +344,7 @@
                     }
                 }
 
-                if(arrIndex.length===5){
+                if(arrIndex.length===5 && arrIndex.length<arrSearch.length){
                     searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`
                 } 
             })    
