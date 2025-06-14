@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/style/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+<body>
+    <div id="overlay"></div>
+    <header>
+        <div class="header-text">
+            <h1>TheBest</h1>
+            <nav>
+                <ul>
+                    <li><a href="home.html" class="mark">Home</a></li>
+                    <li><a href="ourshop.html">Our Shop</a></li>
+                    <li><a href="images.html">Library</a></li>
+                    <li><a href="Contact.html">Contact Us</a></li>
+                    <li class="sign-text"><a href="sign.html">SIGN IN</a></li>
+                </ul>
+            </nav>
+            <details>
+                <summary>&#9776;</summary>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="ourshop.html">Our Shop</a></li>
+                    <li><a href="images.html">Library</a></li>
+                    <li><a href="Contact.html">Contact Us</a></li>
+                    <li ><a href="sign.html">SIGN IN</a></li>
+                </ul>
+            </details>
+        </div>
+        <div class="header-list">
+            <div class="text">
+                <h3>Welcome to TheBest</h3>
+                <h2>BEST GAMING SITE EVER</h2>
+                <div class="seach">
+                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input type="text"  id="searchInput" placeholder="Search for products...">
+                </div>
+                    <ul id="fruitList" style="display: none;">
+                        <li><a href="#">Warframe</a></li>
+                        <li><a href="#">World of Tanks</a></li>
+                        <li><a href="#">Call of Duty</a></li>
+                        <li><a href="#">Dota</a></li>
+                        <li><a href="#">ARK</a></li>
+                        <li><a href="#">GTA5</a></li>
+                        <li><a href="#">Dead by Daylight</a></li>
+                        <li><a href="#">PUPG</a></li>
+                    </ul>
+                <p id="noResult" style="display: none; color: red;">Không tìm thấy kết quả nào.</p>
+            </div>
+            <div class="list">
+                <span class="list-item">-40%</span>
+                <span class="price">$22</span>
+                <img  src="/anh/banner-image.jpg" alt="">   
+            </div>
+        </div>
+        <div class="features">
+            <ul>
+                <li><a href="#newly">newly released</a></li>
+                <li><a href="#coming">coming soon</a></li>
+                <li><a href="#trending">trending</a></li>
+                <li><a href="#categories">categories</a></li>
+            </ul>    
+        </div>
+    </header>
+    <div class="container">
+        <div class="conten1">
+            <div class="conten-text" id="newly">
+                <span><p>NEW</p><br>
+                <h2>Newly Relesed</h2></span>
+                <h3><a href="ourshop.html">VIEW ALL</a></h3>
+            </div>
+            <div class="conten-list">
+                <div class="conten-item "  type="adventure">
+                    <div class="item">
+                        <img src="/anh/trending-01.jpg" alt="">
+                    </div>
+                    <div class="coment">
+                        <strong>Name:</strong>Warframe<br>
+                        <strong>Genre:</strong>Adventure<br>
+                        <strong>Developer:</strong>Digital Extremes<br>
+                        <strong>Publisher:</strong>Digital Extremes<br>
+                        <strong>Release Date:</strong>March 26, 2013
+                    </div>
+                    <div class="down-item">
+                        <span>adventure<br>
+                        <h2 class="name">Warframe</h2></span>
+                        <div class="shopping"><i class="fa-solid fa-bag-shopping"></i></div>
+                    </div>
+                </div>
+                <div class="conten-item">
+                    <div class="item">
+                        <img src="/anh/capsule_616x353 (1).jpg" alt="">
+                    </div>
+                    <div class="coment">
+                        <strong>Name:</strong>World of Tanks<br>
+                        <strong>Genre:</strong>Antagonism<br>
+                        <strong>Developer:</strong>Wargaming Group Limited<br>
+                        <strong>Publisher:</strong>Wargaming Group Limited<br>
+                        <strong>Release Date:</strong>29 Thg04, 2021
+                    </div>
+                    <div class="down-item">
+                        <span>antagonism<br>
+                        <h2 class="name">World of Tanks</h2></span>
+                        <div class="shopping"><i class="fa-solid fa-bag-shopping"></i></div>
+                    </div>
+                </div>
+                <div class="conten-item">
+                    <div class="item">
+                        <img src="/anh/header.jpg" alt="">
+                    </div>
+                    <div class="coment">
+                        <strong>Name:</strong>Survival<br>
+                        <strong>Genre:</strong>Call of Duty<br>
+                        <strong>Developer:</strong> Treyarch,Raven Software<br>
+                        <strong>Publisher:</strong>Activision<br>
+                        <strong>Release Date:</strong>28 Thg10, 2022
+                    </div>
+                    <div class="down-item">
+                        <span>survival<br>
+                        <h2 class="name">Call of Duty</h2></span>
+                        <div class="shopping"><i class="fa-solid fa-bag-shopping"></i></div>
+                    </div>
+                </div>
+                <div class="conten-item">
+                    <div class="item" type="tactics">
+                        <img src="/anh/capsule_616x353.jpg" alt="">
+                    </div>
+                    <div class="coment">
+                        <strong>Name:</strong>Dota 2<br>
+                        <strong>Genre:</strong>Tactics<br>
+                        <strong>Developer:</strong>Valve<br>
+                        <strong>Publisher:</strong>Valve<br>
+                        <strong>Release Date:</strong>10 Thg07,2013
+                    </div>
+                    <div class="down-item">
+                        <span>tactics<br>
+                        <h2 class="name">Dota 2</h2></span>
+                        <div class="shopping"><i class="fa-solid fa-bag-shopping"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="conten">
+            <div class="comingSoon" id="coming">
+                <span>
+                <h2>Coming Soon</h2></span>
+                <h3><a href="ourshop.html">VIEW ALL</a></h3>
+            </div>
+            <div class="comingSoon-text">
+                <div class="comingSoon-list">
+                    <div class="comingSoon-item">
+                        <img src="/anh/Ghost Frequency.jpg" alt="">
+                    </div>
+                    <div class="comenting">
+                        <strong>Name:</strong>Ghost Frequency<br>
+                        <strong>Genre:</strong>Horrified<br>
+                        <strong>Developer:</strong>PIT GAMES<br>
+                        <strong>Publisher:</strong> PIT GAMES<br>
+                        <strong>Release Date:</strong>26 Thg05, 2025
+                    </div>
+                    <div class="down-comingSoon">
+                        <span>Horrified<br>
+                        <h2>Ghost frequncy</h2></span><br>
+                        <div class="see">see details</div>
+                    </div>
+                </div>
+                <div class="comingSoon-list">
+                    <div class="comingSoon-item">
+                        <img src="/anh/PaperKlay.jpg" alt="">
+                    </div>
+                    <div class="comenting">
+                        <strong>Name:</strong>PaperKlay<br>
+                        <strong>Genre:</strong>Adventure<br>
+                        <strong>Developer:</strong> WhyKev<br>
+                        <strong>Publisher:</strong> WhyKev<br>
+                        <strong>Release Date:</strong>27 Thg05, 2025
+                    </div>
+                    <div class="down-comingSoon">
+                        <span>Adventure<br>
+                        <h2>PaperKlay</h2></span><br>
+                        <div class="see">see details</div>
+                    </div>
+                </div>
+                <div class="comingSoon-list">
+                    <div class="comingSoon-item">
+                        <img src="/anh/True Vikings.jpg" alt="">
+                    </div>
+                    <div class="comenting">
+                        <strong>Name:</strong>True Vikings<br>
+                        <strong>Genre:</strong>Antagonism<br>
+                        <strong>Developer:</strong>Hamsters Gaming<br>
+                        <strong>Publisher:</strong>Hamsters Gaming<br>
+                        <strong>Release Date:</strong>30 Thg09, 2025
+                    </div>
+                    <div class="down-comingSoon">
+                        <span>Antagonism<br>
+                        <h2>True Vikings</h2></span><br>
+                        <div class="see">see details</div>
+                    </div>
+                </div>
+                <div class="comingSoon-list">
+                    <div class="comingSoon-item">
+                        <img src="/anh/Goddess of Victory.webp" alt="">
+                    </div>
+                    <div class="comenting">
+                        <strong>Name:</strong>Nikke: Goddess of Victory<br>
+                        <strong>Genre:</strong>ACT<br>
+                        <strong>Developer:</strong>Level Infinite<br>
+                        <strong>Publisher:</strong>Level Infinite<br>
+                        <strong>Release Date:</strong>2022
+                    </div>
+                    <div class="down-comingSoon">
+                        <span>ACT<br>
+                        <h2 class="name">Godd of Victory</h2></span>                        
+                        <div class="see">see details</div>
+                    </div>
+                </div>
+                <div class="comingSoon-list">
+                    <div class="comingSoon-item">
+                       <img src="/anh/Kingmakers.jpg" alt="">
+                    </div>
+                    <div class="comenting">
+                        <strong>Name:</strong>Kingmakers<br>
+                        <strong>Genre:</strong>Role play<br>
+                        <strong>Developer:</strong>Redemption Road<br>
+                        <strong>Publisher:</strong>tinyBuild<br>
+                        <strong>Release Date:</strong>9 Thg10, 2025
+                    </div>
+                    <div class="down-comingSoon">
+                        <span>Role play<br>
+                        <h2>Kingmakerss</h2></span><br>
+                        <div class="see">see details</div>
+                    </div>
+                </div>
+                <div class="comingSoon-list">
+                    <div class="comingSoon-item">
+                        <img src="/anh/Twilight Tails.jpg" alt="">
+                    </div>
+                    <div class="comenting">
+                        <strong>Name:</strong>Twilight Tails<br>
+                        <strong>Genre:</strong>Survival<br>
+                        <strong>Developer:</strong>Prokopchuk Pavlo<br>
+                        <strong>Publisher:</strong>Prokopchuk Pavlo<br>
+                        <strong>Release Date:</strong> 27 Thg05, 2025
+                    </div>
+                    <div class="down-comingSoon">
+                        <span>Survival<br>
+                        <h2>Twilight Tails</h2></span><br>
+                        <div class="see">see details</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="conten">
+            <div class="comingSoon" id="trending">
+                <span>
+                <h2>Trending</h2></span>
+                <h3><a href="ourshop.html">VIEW ALL</a></h3>
+            </div>
+            <div class="comingSoon-text">
+                <div class="comingSoon-list">
+                    <div class="comingSoon-item">
+                        <img src="/anh/ARK.jpg" alt="">
+                    </div>
+                    <div class="comenting">
+                        <strong>Name:</strong>ARK: Survival Evolved<br>
+                        <strong>Genre:</strong>Survival<br>
+                        <strong>Developer:</strong>Studio Wildcard, Instinct Games, Efecto Studios, Virtual Basement LLC<br>
+                        <strong>Publisher:</strong>Studio Wildcard, Snail Games USA<br>
+                        <strong>Release Date:</strong>28 Thg08, 2017
+                    </div>
+                    <div class="down-comingSoon">
+                        <span>Survival<br>
+                        <h2>ARK</h2></span><br>
+                        <div class="see">see details</div>
+                    </div>
+                </div>
+                <div class="comingSoon-list">
+                    <div class="comingSoon-item">
+                        <img src="/anh/Street Fighter 5.jpg" alt="">
+                    </div>
+                    <div class="comenting">
+                        <strong>Name:</strong>Street Fighter 5<br>
+                        <strong>Genre:</strong>Antagonism<br>
+                        <strong>Developer:</strong> CAPCOM Co., Ltd.<br>
+                        <strong>Publisher:</strong> CAPCOM Co., Ltd.<br>
+                        <strong>Release Date:</strong>16 Thg02, 2016
+                    </div>
+                    <div class="down-comingSoon">
+                        <span>Antagonism<br>
+                        <h2>Street Fighter 5</h2></span><br>
+                        <div class="see">see details</div>
+                    </div>
+                </div>
+                <div class="comingSoon-list">
+                    <div class="comingSoon-item">
+                        <img src="/anh/One Piece Odyssey.jpg" alt="">
+                    </div>
+                    <div class="comenting">
+                        <strong>Name:</strong>One Piece Odyssey<br>
+                        <strong>Genre:</strong>Survival ,Anime , ACT<br>
+                        <strong>Developer:</strong> ILCA, Inc.<br>
+                        <strong>Publisher:</strong> Bandai Namco Entertainment<br>
+                        <strong>Release Date:</strong>13 Thg01, 2023
+                    </div>
+                    <div class="down-comingSoon">
+                        <span>Survival<br>
+                        <h2>One Piece</h2></span><br>
+                        <div class="see">see details</div>
+                    </div>
+                </div>
+                <div class="comingSoon-list">
+                    <div class="comingSoon-item">
+                        <img src="/anh/GTA5.jpg" alt="">
+                    </div>
+                    <div class="comenting">
+                        <strong>Name:</strong>Grand Theft Auto V<br>
+                        <strong>Genre:</strong>ACT<br>
+                        <strong>Developer:</strong> Rockstar North <br>
+                        <strong>Publisher:</strong>Rockstar Games<br>
+                        <strong>Release Date:</strong>17 Th9,2013
+                    </div>
+                    <div class="down-comingSoon">
+                        <span>ACT<br>
+                        <h2>GTA5</h2></span><br>
+                        <div class="see">see details</div>
+                    </div>
+                </div>
+                <div class="comingSoon-list">
+                    <div class="comingSoon-item">
+                        <img src="/anh/Dead by Day light.jpg" alt="">
+                    </div>
+                    <div class="comenting">
+                        <strong>Name:</strong>Dead by Day light<br>
+                        <strong>Genre:</strong>Horrified<br>
+                        <strong>Developer:</strong>Behaviour Interactive Inc.<br>
+                        <strong>Publisher:</strong>Behaviour Interactive Inc.<br>
+                        <strong>Release Date:</strong>14 Thg06, 2016
+                    </div>
+                    <div class="down-comingSoon">
+                        <span>Horrified<br>
+                        <h2>DeadbyDaylight</h2></span><br>
+                        <div class="see">see details</div>
+                    </div>
+                </div>
+                <div class="comingSoon-list">
+                    <div class="comingSoon-item">
+                        <img src="/anh/game-minecraft-thumb.jpg" alt="">
+                    </div>
+                    <div class="comenting">
+                        <strong>Name:</strong>Minecraft<br>
+                        <strong>Genre:</strong>Survival<br>
+                        <strong>Developer:</strong>Sandbox<br>
+                        <strong>Publisher:</strong> Mojang Studio<br>
+                        <strong>Release Date:</strong>Thg05,2009
+                    </div>
+                    <div class="down-comingSoon">
+                        <span>Survival<br>
+                        <h2>Minecraft</h2></span><br>
+                        <div class="see">see details</div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        <div class="conten2">
+            <div class="categories" id="categories">
+                <span><h2> Categories</h2>
+                <h1>Most Played</h1></span>
+            </div>
+            <div class="categories-text">
+                <div class="categories-list">
+                    <div class="down-categories">
+                        <h2>Act</h2>
+                    </div>
+                    <div class="categories-item">
+                        <a href="ourshop.html">
+                            <img src="/anh/GTA5.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="categories-list">
+                    <div class="down-categories">
+                        <h2>Survival</h2>
+                    </div>
+                    <div class="categories-item">
+                        <a href="ourshop.html">
+                            <img src="/anh/ARK.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="categories-list">
+                    <div class="down-categories">
+                        <h2>Tactics</h2>
+                    </div>
+                    <div class="categories-item">
+                        <a href="ourshop.html">
+                            <img src="/anh/capsule_616x353.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="categories-list">
+                    <div class="down-categories">
+                        <h2>Antagonism</h2>
+                    </div>
+                    <div class="categories-item">
+                        <a href="ourshop.html">
+                            <img src="/anh/Street Fighter 5.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="categories-list">
+                    <div class="down-categories">
+                        <h2>Horrified</h2>
+                    </div>
+                    <div class="categories-item">
+                        <a href="ourshop.html">
+                            <img src="/anh/Dead by Day light.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>    
+    </div>
+    <div class="end">
+        <div class="end-text">
+            <img src="/anh/810309-16-14-25-21.jpg" alt="">
+        </div>
+        <div class="end-list">
+            <p>Our Shop</p>
+            <h1>Go Pre-Order Buy<br> & Get Best <span style="color:#0071f8;"> Prices</span><br> For You!</h1> 
+            <h3><a href="ourshop.html">SHOP NOW</a></h3> 
+        </div>    
+    </div>
+    <div class="end-item">
+        <p>©2025-Copyright THEBEST-SDT:0100100có</p>
+    </div>
+    <script src="/js/home.js"></script>
+</body>
+</html>
