@@ -4,6 +4,7 @@
     let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
     let imgBackground= document.getElementById('imgBackground') //ảnh nền 
     let check2=0 //biến đê thoát hàm resetGif
+    let background= document.getElementById('background')// khối div chứa nền
 
     //do Gif hay bị lỗi nên phải tạo hàm để reset lại
     let resetGif=()=>{
@@ -384,7 +385,7 @@
                         }        
                     }
                     searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`    
-                    if(arrIndex[0]>4){
+                    if(arrIndex[0]>4 && arrIndex[0]>arrSearch[0]){
                         searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<p style='float:left; padding-left:3%; cursor:pointer' onclick='clickBack(arrIndex[0])'>⬅️</p>`
                     } 
                 })
