@@ -344,7 +344,7 @@
                     }
                 }
 
-                if(arrIndex.length===5 && arrIndex[arrIndex.length-1]<arrSearch.length-1){
+                if(arrIndex.length===5){
                     searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`
                 } 
             })    
