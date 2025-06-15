@@ -200,7 +200,6 @@
     let listener= document.getElementById('listener'); //khối chứa ảnh nền của Music
     let contain2= document.getElementById('contain2') //khối div chứa các phần liên quan đến Music
     let finder= document.getElementById('finder') // thanh tìm kiếm nhạc
-    let label = document.getElementById('label') //dòng text 'Tìm kiếm'
     let search= document.getElementById('search') //nút search
     let musicScreen= document.getElementById('musicScreen') //khối chứa các button playPause
     let exitButton= document.getElementById('exitButton') //nút thoát background nhạc
