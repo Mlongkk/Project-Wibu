@@ -2,8 +2,8 @@
     //Animation waiting Screen
     let waitingScreen= document.getElementById('waitingScreen') //khối div chứa full screen
     let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
-    let imgBackground= document.getElementById('imgBackground') //ảnh nền 
-    let check2=0 //biến đê thoát hàm resetGif
+    let imgBackground= document.getElementById('imgBackground') //video nền 
+    let check2=0 //biến để thoát hàm resetGif
 
 
     //do Gif hay bị lỗi nên phải tạo hàm để reset lại
@@ -83,13 +83,13 @@
     }
 
 
-    let v; let a=0; let b=0; let check1=30 //đây là các biến lưu trữ của hàm changePic()
+    let v; let a=0; let b=0; let check1=24 //đây là các biến lưu trữ của hàm changePic()
     let changePic=(x)=>{
         document.body.scrollTop=0; document.documentElement.scrollTop=0;
-        picContainer.innerHTML=''; check1=30;
+        picContainer.innerHTML=''; check1=24;
         showPic().then(data=>{
             b=x; a=x;
-            for(let i=1;i<16;i++){
+            for(let i=1;i<13;i++){
                 a+=1; x+=1
                 if(x<data.length){
                     picContainer.innerHTML= `${picContainer.innerHTML}<button class='picBlock'> <img class='pic' onmouseover='hoverPic()' src="./folderWibu/${data[x-1].name}" </button>` 
@@ -105,7 +105,7 @@
             }
 
             if(x-check1>=0){
-                if(check1===30){
+                if(check1===24){
                     picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious'style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1)'>&laquo; Back</h1>`
                 }
                 else{
@@ -122,7 +122,7 @@
     let pic= document.getElementsByClassName('pic');
     let picBlock= document.getElementsByClassName('picBlock')
     let hoverPic=()=>{
-        for(let i=0;i<15;i++){
+        for(let i=0;i<12;i++){
             if(i+b<a){
                 pic[i].addEventListener('click', function(){
                     check=0; v=i+b
