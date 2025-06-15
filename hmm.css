@@ -17,6 +17,7 @@
         position: fixed; width: 100%; height: 100vh; object-fit: cover; object-position: 70% 40%; 
     }
 
+
     #marqueeImg{
         position: fixed; left:15%;
     }
@@ -51,11 +52,17 @@
     } */
 
     #finder{
-        position: fixed; display:flex ; transition: all 1s; height: 5%; 
+        position: fixed; display:flex ; transition: all 1s; height: 5%; box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        border: none; padding: 5px; border-radius: 8px;
+    }
+
+    #finder:hover{
+        box-shadow: 0 0 10px #ffbde0;
+        transition: 0.3s;
     }
 
     #searchingResultsBlock{
-        position: fixed; width: 50%; left:24.6%; top: 10%; border-radius: 10px;
+        position: fixed; width: 50%; left:24.6%; top: 9%; border-radius: 10px;
         background-color: white; color:rgba(0, 0, 0, 0.65); box-sizing: border-box;
         
     }
@@ -77,25 +84,25 @@
     }
 
     #picContainer{
-        position: absolute;  transition: all 2.2s;
+        position: absolute;  transition: all 2.2s; 
         width:90%; height: 200vh; top:43%;  right:5%; 
         
     }
 
     .picBlock{
-        position:relative; float:left; width:33.3%; height:30%; padding:0.5%; border:1px solid rgba(0, 0, 0, 0.65);
-        cursor: pointer; transition: all 0.5s;  background: rgb(220, 220, 220);
-        box-shadow: 20px 20px 20px 0 rgba(0, 0, 0, 0.5);
+        position:relative; float:left; width:32.33%; height:30%; padding:0.5%; border:0px;
+        transition: all 0.5s;  background: rgb(0,0,0,0);
+        margin: 0.5%; border-radius: 16px;
     }
 
     .picBlock:hover{
-        opacity: 0.8; box-shadow: 0 0 10px #ffbde0;
+        opacity: 0.8; box-shadow: 0 0 10px #ffbde0; transform: scale(1.05); cursor: pointer;
     }
 
     .pic{
          width: 100%; height: 100%; cursor: pointer; 
          object-fit:cover; object-position: center; 
-         border-radius: 10px; 
+         border-radius: 16px; 
     }
     
 
@@ -108,16 +115,18 @@
     }
 
     .searchBlock{
-        position: fixed;  top:4%; transition: all 1s; cursor: pointer; width: 50%;
+        position: fixed;  top:2%; transition: all 1s; cursor: pointer; width: 50%;
     }
         
     .searchButton{
-        position: fixed;  right:17%; top:8%;  background-color: rgb(220, 220, 220); transition: all 1s; cursor: pointer; font-family:'Poppins', sans-serif;
-        border: 0px; color: rgba(0, 0, 0, 0.85);
+        position: fixed;  right:18%; top:6%;  font-family:'Poppins', sans-serif;
+        background-color: #6c5ce7; color: white;
+        border: none; border-radius: 8px;
+        padding: 7px 7px;
     }
     
     .searchButton:hover{
-        background-color: #5c6bc0;
+        cursor: pointer;
         box-shadow: 0 0 10px #ffbde0;
         transition: 0.3s;
     }
@@ -153,9 +162,9 @@
         }
 
         .picBlock{
-            position:relative; float:left; width:100%; height:25%; padding:0.5%; border:1px solid rgba(0, 0, 0, 0.65);
-            cursor: pointer; transition: all 0.5s; background: rgb(220, 220, 220);
-            box-shadow: 20px 20px 20px 0 rgba(0, 0, 0, 0.5);
+            position:relative; float:left; width:100%; height:25%; padding:0.5%; border:0px;
+            transition: all 0.5s; background: rgb(0,0,0,0);
+            margin: 0.5%; border-radius: 16px;
         }
 
         /* #gif{
@@ -165,16 +174,18 @@
         } */
 
         .searchBlock{
-            position: fixed; left:5%; top:4%; transition: all 1s; cursor: pointer; width: 80%;
+            position: fixed; left:2%; top:2%; transition: all 1s; cursor: pointer; width: 80%;
         }
         
         .searchButton{
-            position: fixed;  right:0; top:10%;  background-color: rgb(220, 220, 220); transition: all 1s; cursor: pointer; font-family:'Poppins', sans-serif;
-            border: 0px; color: rgba(0, 0, 0, 0.85);
+            position: fixed;  right:0; top:10%; font-family:'Poppins', sans-serif;
+            background-color: #6c5ce7; color: white;
+            border: none; border-radius: 8px;
+            padding: 7px 7px;
         }
 
         #searchingResultsBlock{
-            position: fixed; width: 80%; left:5%; top: 9.78%; border-radius: 10px;
+            position: fixed; width: 80%; left:2.5%; top: 8.5%; border-radius: 10px;
             background-color: white; color:rgba(0, 0, 0, 0.65); box-sizing: border-box;
         
         }
@@ -195,9 +206,9 @@
         }
 
         .picBlock{
-            position:relative; float:left; width:33.3%; height:30%; padding:0.5%; border:1px solid rgba(0, 0, 0, 0.65);
-            cursor: pointer; transition: all 0.5s;  background: rgb(220, 220, 220);
-            box-shadow: 20px 20px 20px 0 rgba(0, 0, 0, 0.5);
+            position:relative; float:left; width:32.33%; height:30%; padding:0.5%; border:0px;
+            transition: all 0.5s;  background: rgb(0,0,0,0);
+            margin: 0.5%; border-radius: 16px;
         }
         
         /* #gif{
@@ -211,12 +222,14 @@
         }
         
         .searchButton{
-            position: fixed;  right:12%; top:9%;  background-color: rgb(220, 220, 220); transition: all 1s; cursor: pointer; font-family:'Poppins', sans-serif;
-            border: 0px; color: rgba(0, 0, 0, 0.85);
+            position: fixed;  right:12%; top:9%; font-family:'Poppins', sans-serif;
+            background-color: #6c5ce7; color: white;
+            border: none; border-radius: 8px;
+            padding: 7px 7px;
         }
 
         #searchingResultsBlock{
-            position: fixed; width: 50%; left:5%; top: 9.6%; border-radius: 10px;
+            position: fixed; width: 50%; left:5%; top: 8%; border-radius: 10px;
             background-color: white; color:rgba(0, 0, 0, 0.65); box-sizing: border-box;
         
         }
