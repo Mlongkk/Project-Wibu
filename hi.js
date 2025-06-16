@@ -21,7 +21,7 @@
 
         setTimeout(()=>{
             changePic(a) //kích hoạt changePic ngay sau khi load trang    
-        },8000)
+        },7000)
 
         // setTimeout(()=>{
         //    imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"; 
@@ -209,7 +209,7 @@
     let check=1; // biến check điều kiện
     let checkBackground=(x)=>{
         if(check===1){
-            listener.innerHTML= `<img class='backgroundMusic' src="folderWibu/100988999_p0.png" alt=""> <div class='backgroundMusic' style="position: absolute; background-color: rgba(0, 0, 0, 0.15); "></div>
+            listener.innerHTML= `<img class='backgroundMusic' src="folderWibu/100988999_p0.png" alt=""> <div class='backgroundMusic' style="position: absolute; background-color: rgba(0, 0, 0, 0.15);"></div>
         <h1 style='position:absolute; bottom:15%;'> <marquee behavior="sroll" direction="left"> Song ${n}: ${x[n-1].name} </marquee></h1>` 
         }
         else if(check===0){
