@@ -2,7 +2,7 @@
     //Animation waiting Screen
     let waitingScreen= document.getElementById('waitingScreen') //khối div chứa full screen
     let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
-    // let imgBackground= document.getElementById('imgBackground') //video nền 
+    let imgBackground= document.getElementById('imgBackground') //video nền 
     let check2=0 //biến để thoát hàm resetGif
 
 
@@ -23,9 +23,9 @@
             changePic(a) //kích hoạt changePic ngay sau khi load trang    
         },7000)
 
-        // setTimeout(()=>{
-        //    imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"; 
-        // },10500)
+        setTimeout(()=>{
+           imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"; 
+        },10000)
 
         setTimeout(()=>{
             check2=1; 
