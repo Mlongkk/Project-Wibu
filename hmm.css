@@ -38,7 +38,7 @@
     }
     
     .backgroundMusic{
-        width: 100%; height: 100%; object-fit: cover; object-position:50% 20%;
+        width: 65%; height: 65%; object-fit: cover; object-position:50% 20%; 
     }
 
     /* #gif{
@@ -119,10 +119,10 @@
     }
         
     .searchButton{
-        position: fixed;  right:18%; top:6%;  font-family:'Poppins', sans-serif;
+        position: fixed;  right:17.5%; top:6%;  font-family:'Poppins', sans-serif;
         background-color: #6c5ce7; color: white;
         border: none; border-radius: 8px;
-        padding: 7px 7px;
+        padding: 6px 6px;
     }
     
     .searchButton:hover{
@@ -164,7 +164,7 @@
         .picBlock{
             position:relative; float:left; width:100%; height:25%; padding:0.5%; border:0px;
             transition: all 0.5s; background: rgb(0,0,0,0);
-            margin: 0.5%; border-radius: 16px;
+            margin-bottom: 10%; border-radius: 16px;
         }
 
         /* #gif{
@@ -178,10 +178,10 @@
         }
         
         .searchButton{
-            position: fixed;  right:0; top:10%; font-family:'Poppins', sans-serif;
+            position: fixed;  right:0.2%; top:8.5%; font-family:'Poppins', sans-serif;
             background-color: #6c5ce7; color: white;
             border: none; border-radius: 8px;
-            padding: 7px 7px;
+            padding: 6px 6px;
         }
 
         #searchingResultsBlock{
@@ -192,6 +192,10 @@
 
         #marqueeImg{
             position: fixed; left:-35%;
+        }
+
+        .backgroundMusic{
+            width: 100%; height: 100%; object-fit: cover; object-position:50% 20%; 
         }
     }
 
@@ -225,7 +229,7 @@
             position: fixed;  right:12%; top:9%; font-family:'Poppins', sans-serif;
             background-color: #6c5ce7; color: white;
             border: none; border-radius: 8px;
-            padding: 7px 7px;
+            padding: 6px 6px;
         }
 
         #searchingResultsBlock{
@@ -236,6 +240,10 @@
 
         #marqueeImg{
             position: fixed; left:15%;
+        }
+
+        .backgroundMusic{
+            width: 65%; height: 65%; object-fit: cover; object-position:50% 20%; 
         }
     }
 
