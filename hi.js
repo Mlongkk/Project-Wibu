@@ -345,7 +345,7 @@
                 } 
                 
                 //user bấm phím Enter chạy bài đầu tiên của list
-                if(e.key==='Enter'){
+                if(e.key==='Enter' && arrIndex.length>0){
                     finder.value= `Song ${arrIndex[0]+1}: ${myMusic[arrIndex[0]].name}`;
                     searchMusic()
                 }
