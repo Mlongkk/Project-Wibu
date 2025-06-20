@@ -120,10 +120,10 @@
     }
         
     .searchButton{
-        position: fixed;  right:17.5%; top:6%;  font-family:'Poppins', sans-serif;
+        position: fixed;  right:15%; top:7%;  font-family:'Poppins', sans-serif;
         background-color: #6c5ce7; color: white;
         border: none; border-radius: 8px;
-        padding: 6px 6px;
+        padding: 5px 5px;
     }
     
     .searchButton:hover{
@@ -197,10 +197,10 @@
         }
         
         .searchButton{
-            position: fixed;  right:0.2%; top:8.5%; font-family:'Poppins', sans-serif;
+            position: fixed;  right:1%; top:8%; font-family:'Poppins', sans-serif;
             background-color: #6c5ce7; color: white;
             border: none; border-radius: 8px;
-            padding: 6px 6px;
+            padding: 4px 4px;
         }
 
         #searchingResultsBlock{
