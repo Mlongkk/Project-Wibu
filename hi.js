@@ -209,7 +209,7 @@
     let check=1; // biến check điều kiện
     let checkBackground=(x)=>{
         if(check===1){
-            listener.innerHTML= `<img class='backgroundMusic' src="folderWibu/anime_Sword_Art_Online_anime_girls_sunset_Kirigaya_Kazuto_Yuuki_Asuna_Sun_clouds-243667.jpg" alt=""> <div class='backgroundMusic' style="position: absolute; background-color: rgba(0, 0, 0, 0.15);"></div>
+            listener.innerHTML= `<img class='backgroundMusic' src="folderWibu/66439076_p0.jpg" alt=""> <div class='backgroundMusic' style="position: absolute; background-color: rgba(0, 0, 0, 0.15);"></div>
         <h1 style='position:absolute; bottom:15%;'> <marquee behavior="sroll" direction="left"> Song ${n}: ${x[n-1].name} </marquee></h1>` 
         }
         else if(check===0){
