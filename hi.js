@@ -14,8 +14,8 @@
         }
         setTimeout(resetGif,2000)
     }
-    resetGif()
-
+        resetGif()
+    
     //hàm thoát waiting Screen
     let waitingAnimation=()=>{
 
@@ -305,6 +305,7 @@
               
     };
     search.addEventListener('click', searchMusic);
+    
 
 
     //edit hàm filter kết quả nhạc
@@ -316,7 +317,7 @@
     let filter1= document.getElementById('filter1');
     let filter2= document.getElementById('filter2');
     
-    finder.addEventListener('keyup', function(){
+    finder.addEventListener('keyup', function(e){
         arrIndex=[]; arrSearch=[];
         searchingResultsBlock.innerHTML=``;
 
@@ -342,9 +343,14 @@
                 if(arrIndex.length===5 && arrIndex.length<arrSearch.length){
                     searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`
                 } 
-            })    
-        }
                 
+                //user bấm phím Enter chạy bài đầu tiên của list
+                if(e.key==='Enter'){
+                    finder.value= `Song ${arrIndex[0]+1}: ${myMusic[arrIndex[0]].name}`;
+                    searchMusic()
+                }
+            })    
+        }    
     });
 
     //hàm click chuyển thanh kết quả nhạc
@@ -363,8 +369,8 @@
                     if(arrIndex.length===5 && arrIndex[arrIndex.length-1]<arrSearch.length-1){
                         searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`
                     }    
-                })
-
+                    
+                })      
         }       
     };
 
