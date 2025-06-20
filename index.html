@@ -19,7 +19,7 @@
 
         #imgBackground{
             position: fixed; transition: all 3s; 
-            width: 0; height: 100vh; object-fit: cover; object-position: 60% 20%; 
+            width: 0; height: 100vh; object-fit: cover; object-position: 30% 20%; 
         }
 
         .overlay{
@@ -28,17 +28,17 @@
 
         .navbar {
             position: fixed; width: 100%; height: 8%;
-            background: linear-gradient(90deg, #5c6bc0, #8e24aa);
+            background: linear-gradient(90deg, #5c6bc0a6,  #8e24aa);
             box-shadow: 0 2px 10px rgba(0,0,0,0.2);
             justify-content: center; align-items: center; display: flex;
         }
 
         .innerBar{
-            width: 25%; ;float:left; text-align:center;
+            width: 29%; ;float:left; text-align:center; 
         }
 
         .navbar a {
-            color: white;
+            color:rgb(245, 245, 245);
             text-decoration: none;
             font-weight: bold;
             transition: 0.3s; 
@@ -74,13 +74,23 @@
             transition: 0.3s;
         }
 
+        .logo{
+            position: absolute; top:0px; 
+            height: 100%; 
+        }
+
+        .logo:hover{
+            box-shadow: 0 0 10px #ffbde0;
+            transition: 0.3s;
+        }
+
         </style>
 
 </head>
 
 <body onload="createThing()">
     <div id='background'>
-        <img style='width:100%' id='imgBackground'src="folderWibu/anime_Sword_Art_Online_anime_girls_sunset_Kirigaya_Kazuto_Yuuki_Asuna_Sun_clouds-243667.jpg" alt="">
+        <img style='width:100%' id='imgBackground'src="folderWibu/66439076_p0.jpg" alt="">
         <div class="overlay"></div>
         <h1 id='text' style="font-family: 'Poppins', sans-serif; font-size: 22px; color: #ff6ec7; text-align: center; position:absolute;  ">
             ✨ Welcome to Web Anime ✨
@@ -89,9 +99,10 @@
 
     <div id='title' style="position: fixed; top:-20%; transition: all 1.5s;">
         <nav class="navbar">
-            <div class="innerBar"><a href="index.html"><h3>Trang Chủ</h3></a></div>
-            <div class="innerBar"><a href="https://animevietsub.lol/"><h3>Đọc truyện</h3></a></div>
-            <div class="innerBar"><a href="https://nvhai982006.github.io/jscuoiki/"><h3>Game</h3></a></div>
+            <div style="width: 13%; ;float:left;"><img src="Logo_09120D34-E32_A614_PA.png" class="logo"></div>
+            <div class="innerBar"><a href="index.html"><h2> 🏠︎Home</h2></a></div>
+            <div class="innerBar"><a href="https://dangtuhuynh.github.io/novel-summary/"><h2>Novel</h2></a></div>
+            <div class="innerBar"><a href="https://nvhai982006.github.io/jscuoiki/"><h2>Game</h2></a></div>
         </nav>
     </div>
 
