@@ -210,7 +210,7 @@
         }
 
         #marqueeImg{
-            position: fixed; left:-35%;
+            position: fixed; left:-35%; 
         }
 
 
@@ -222,6 +222,10 @@
         .logoText{
             position: absolute; top:-300%; 
             font-family: 'Poppins', sans-serif; font-size: 22px; color: #ff6ec7; left:5%; text-align:center   
+        }
+
+        #innerWaitingScreen{
+            width: 50%;
         }
         
     }
