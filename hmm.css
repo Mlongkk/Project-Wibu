@@ -157,18 +157,19 @@
         height: 100%; 
     }
 
-    .logoText{
+    /* .logoText{
         position: absolute; font-size: 15px; 
         font-family: 'Poppins', sans-serif;  color: #ff6ec7; left:5%; text-align:center;
     }
 
     .logoText:hover{
         box-shadow: 0 0 10px #ffbde0; transition: 0.3s;
-    }
+    } */
 
     .logo:hover{
         box-shadow: 0 0 10px #ffbde0; transition: 0.3s;
     }
+    
 
     @media screen and ((max-width: 540px) or (min-height: 1024px)) {
         .musicButton{
@@ -219,10 +220,10 @@
             height: 100%; 
         }
 
-        .logoText{
+        /* .logoText{
             position: absolute; top:-300%; 
             font-family: 'Poppins', sans-serif; color: #ff6ec7; left:5%; text-align:center   
-        }
+        } */
 
         #innerWaitingScreen{
             width: 65%;
@@ -282,10 +283,10 @@
             height: 100%; 
         }
 
-        .logoText{
+        /* .logoText{
             position: absolute; top:-300%; 
             font-family: 'Poppins', sans-serif; color: #ff6ec7; left:5%; text-align:center   
-        }
+        } */
 
         #exitButton{
             position: fixed; right: 0; top:-2%; cursor: pointer; font-style: normal; opacity: 0.9;
