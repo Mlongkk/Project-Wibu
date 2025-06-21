@@ -141,7 +141,7 @@
     }
 
     #homeButton{
-        position: fixed; right: 1%; top:-3.3%; cursor: pointer; font-style: normal; 
+        position: fixed; right: 1%; top:-3%; cursor: pointer; font-style: normal; 
     }
 
     #homeButton:hover{
