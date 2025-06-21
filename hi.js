@@ -200,7 +200,7 @@
     let listener= document.getElementById('listener'); //khối chứa ảnh nền của Music
     let contain2= document.getElementById('contain2') //khối div chứa các phần liên quan đến Music
     let finder= document.getElementById('finder') // thanh tìm kiếm nhạc
-    let search= document.getElementById('search') //nút search
+    // let search= document.getElementById('search') //nút search
     let musicScreen= document.getElementById('musicScreen') //khối chứa các button playPause
     let exitButton= document.getElementById('exitButton') //nút thoát background nhạc
     let homeButton= document.getElementById('homeButton')// nút về trang chủ
@@ -284,27 +284,25 @@
 
 
     //hàm của nút 'Search'
-    let filterSearch= document.getElementById('filterSearch')
+    let filterSearch= document.getElementById('filterSearch'); 
     let searchMusic= ()=>{
         if(finder.value!==''){
             filterSearch.innerText= (finder.value).toLowerCase();
-            finder.value= '';
+            finder.value= ''; searchingResultsBlock.innerHTML=``;
             takeMusic().then(myMusic=>{
                 for(let i=0; i<myMusic.length; i++){
-                    if (filterSearch.innerText===(`Song ${i+1}: ${myMusic[i].name}`).toLowerCase()){
-                        music.pause(); n=i; 
-                        searchingResultsBlock.innerHTML=``; nextSong()
+                    if(filterSearch.innerText===(`Song ${i+1}: ${myMusic[i].name}`).toLowerCase()){
+                        music.pause(); n=i; nextSong(); 
                         if(d===0){
                           radioSetting()  
                         }
                         break;
-                    }            
-                } 
-            })          
-        }
-              
+                    } 
+                }              
+            })      
+        }           
     };
-    search.addEventListener('click', searchMusic);
+    // search.addEventListener('click', searchMusic);
     
 
 
@@ -349,6 +347,11 @@
                     finder.value= `Song ${arrIndex[0]+1}: ${myMusic[arrIndex[0]].name}`;
                     searchMusic()
                 }
+
+                if(e.key==='Enter' && arrIndex.length===0 && finder.value!==''){
+                    alert('Không thể tìm thấy kết quả')
+                }
+
             })    
         }    
     });
@@ -399,12 +402,21 @@
             for(let i=0; i<arrIndex.length; i++){
                 searchingResults[i].addEventListener('click', function(){
                     finder.value= `Song ${arrIndex[i]+1}: ${myMusic[arrIndex[i]].name}`
-                    searchingResultsBlock.innerHTML=``   
+                    searchMusic()   
                 })    
             }
         })
     }
-           
+     
+    
+    //click to remove result
+    let removeResult= ()=>{
+        if(searchingResultsBlock.innerHTML!==''){
+            searchingResultsBlock.innerHTML=''
+        }
+    };
+
+
 
 
 
