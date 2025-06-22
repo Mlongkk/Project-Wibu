@@ -30,7 +30,7 @@
         setTimeout(()=>{
             check2=1; 
             waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
-        },11000)
+        },3000)
         
     }
     waitingAnimation();
@@ -196,7 +196,7 @@
 
 
     //create event cho radio (gif)
-    // let radio= document.getElementById('gif');  //ảnh gif
+    let radio= document.getElementById('gif');  //ảnh gif
     let listener= document.getElementById('listener'); //khối chứa ảnh nền của Music
     let contain2= document.getElementById('contain2') //khối div chứa các phần liên quan đến Music
     let finder= document.getElementById('finder') // thanh tìm kiếm nhạc
@@ -249,7 +249,7 @@
         }
     }
 
-    // radio.addEventListener('click', radioSetting);
+    radio.addEventListener('click', radioSetting);
 
     exitButton.addEventListener('click', function(){
         d=1; radioSetting()
@@ -282,25 +282,42 @@
         }
     };
 
+    //check search function
+    let check3=0;
+    let checkSearch=(x)=>{
+        if(x===0){
+            takeMusic().then(myMusic=>{
+                finder.value= `Song ${arrIndex[0]+1}: ${myMusic[arrIndex[0]].name}`;
+                searchMusic()
+            })   
+        }
+    }
 
     //hàm của nút 'Search'
     let filterSearch= document.getElementById('filterSearch'); 
     let searchMusic= ()=>{
-        if(finder.value!==''){
+        check3=0;
+        if(finder.value!=='' && arrIndex.length===0){
+           alert('Không thể tìm thấy kết quả') 
+        }
+
+        else if(finder.value!==''){
             filterSearch.innerText= (finder.value).toLowerCase();
             finder.value= ''; searchingResultsBlock.innerHTML=``;
             takeMusic().then(myMusic=>{
                 for(let i=0; i<myMusic.length; i++){
                     if(filterSearch.innerText===(`Song ${i+1}: ${myMusic[i].name}`).toLowerCase()){
-                        music.pause(); n=i; nextSong(); 
+                        music.pause(); n=i; nextSong(); check3=1
                         if(d===0){
                           radioSetting()  
                         }
                         break;
                     } 
-                }              
+                }
+                checkSearch(check3)              
             })      
-        }           
+        }
+        
     };
     search.addEventListener('click', searchMusic);
     
