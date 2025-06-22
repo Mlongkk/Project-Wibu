@@ -119,18 +119,18 @@
         position: fixed;  top:2%; transition: all 1s; cursor: pointer; width: 50%;
     }
         
-    /* .searchButton{
-        position: fixed;  right:15%; top:7%;  font-family:'Poppins', sans-serif;
+    .searchButton{
+        position: fixed;  right:15%; top:5%;  font-family:'Poppins', sans-serif;
         background-color: #6c5ce7; color: white;
         border: none; border-radius: 8px;
-        padding: 5px 5px;
+        padding: 4px 4px;
     }
     
     .searchButton:hover{
         cursor: pointer;
         box-shadow: 0 0 10px #ffbde0;
         transition: 0.3s;
-    } */
+    }
 
     #exitButton{
         position: fixed; right: 0; top:-3.5%; cursor: pointer; font-style: normal; opacity: 0.9; 
@@ -197,12 +197,12 @@
             position: fixed; left:2%; top:2%; transition: all 1s; cursor: pointer; width: 80%;
         }
         
-        /* .searchButton{
+        .searchButton{
             position: fixed;  right:1%; top:8%; font-family:'Poppins', sans-serif;
             background-color: #6c5ce7; color: white;
             border: none; border-radius: 8px;
             padding: 4px 4px;
-        } */
+        }
 
         #searchingResultsBlock{
             position: fixed; width: 80%; left:2.5%; top: 8.5%; border-radius: 10px;
@@ -261,12 +261,12 @@
             position: fixed; left:5%; transition: all 1s; cursor: pointer; 
         }
         
-        /* .searchButton{
+        .searchButton{
             position: fixed;  right:12%; top:9%; font-family:'Poppins', sans-serif;
             background-color: #6c5ce7; color: white;
             border: none; border-radius: 8px;
             padding: 6px 6px;
-        } */
+        }
 
         #searchingResultsBlock{
             position: fixed; width: 50%; left:5%; top: 8%; border-radius: 10px;
