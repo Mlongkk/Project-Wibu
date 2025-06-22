@@ -200,7 +200,7 @@
     let listener= document.getElementById('listener'); //khối chứa ảnh nền của Music
     let contain2= document.getElementById('contain2') //khối div chứa các phần liên quan đến Music
     let finder= document.getElementById('finder') // thanh tìm kiếm nhạc
-    // let search= document.getElementById('search') //nút search
+    let search= document.getElementById('search') //nút search
     let musicScreen= document.getElementById('musicScreen') //khối chứa các button playPause
     let exitButton= document.getElementById('exitButton') //nút thoát background nhạc
     let homeButton= document.getElementById('homeButton')// nút về trang chủ
@@ -302,7 +302,7 @@
             })      
         }           
     };
-    // search.addEventListener('click', searchMusic);
+    search.addEventListener('click', searchMusic);
     
 
 
