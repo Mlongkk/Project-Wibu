@@ -30,7 +30,7 @@
         setTimeout(()=>{
             check2=1; 
             waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
-        },3000)
+        },11000)
         
     }
     waitingAnimation();
