@@ -22,6 +22,8 @@
     
     <div id="contain2" onclick="removeResult()">
         <div id="listener"></div>
+        <img id='heart' src="https://phunugioi.com/wp-content/uploads/2020/11/tranh-to-mau-trai-tim-hinh-ve-don-gian.png">
+        <button id="playFavouriteMusic">💗</button> 
         <div id="musicScreen">
             <button id="musicButtonprevious" style="cursor:pointer; border-radius: 50%; border:0px" onclick='previousSong()'><p class="musicButton">⏮️</p></button>
             <button id="musicButtonplay" style="cursor:pointer; border-radius: 50%; border:0px" onclick='playPause()'><p class="musicButton">▶️</p></button>
@@ -40,6 +42,7 @@
         <input id="finder" type="text" placeholder=" 🔍 Nhập tên nhạc muốn tìm..." class="searchBlock" autocomplete="off">       
         <button id='search' class="searchButton">Search</button> 
         <div id="searchingResultsBlock"></div>
+        <div id="warning"></div>
     </div>
 
 
@@ -55,6 +58,7 @@
     <div id='timeContainer' style="position: fixed; left:5%; bottom:28%; transition: all 1s;">
         <p id="musicTime"></p> 
     </div>
+
     
     
     <div>
