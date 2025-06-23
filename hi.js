@@ -45,7 +45,7 @@
     
 
     //hàm lấy ảnh ngẫu nhiên
-    let q=0; let myRandomPic=[];
+    let q=0; let myRandomPic=[]; 
 
     let randomPic= (x,y)=>{
         if(x.length===0){
@@ -69,8 +69,8 @@
                     else x.push(y[q]); 
                 }
             } 
-        };
-
+        }
+        
         return x
     }
     
@@ -133,21 +133,36 @@
         }   
     }
     
+    //khởi tạo nhạc yêu thích
+    let copyMusic=[]; let requestFavourMusic='no'; 
+    if(localStorage.length>0){
+        for(let i=0;i<localStorage.length;i++){
+            copyMusic.push({name: `${localStorage.key(i)}`})
+        }
+    }
 
+    
     //lấy data Music từ file Json
     let myRandomMusic=[]; 
     let takeMusic= async()=>{
         let response= await fetch('myMusic.json')
         let myMusic= await response.json()
+        if(requestFavourMusic==='yes'){
+            return copyMusic
+        }
         return randomPic(myRandomMusic,myMusic)   
     }
 
 
     //music
     let music= ''; //audio khởi tạo
-    takeMusic().then(myMusic=>{
-        music= new Audio(`./music/${myMusic[0].name}.mp3`)
-    })
+    let musicInit= ()=>{
+        takeMusic().then(myMusic=>{
+            music= new Audio(`./music/${myMusic[0].name}.mp3`)
+        }) 
+    }
+    musicInit()
+    
 
     let checkTime=0; //thời gian nhạc hiện tại
     let autoRunRadio='Off'; //biến check điều kiện
@@ -204,6 +219,8 @@
     let musicScreen= document.getElementById('musicScreen') //khối chứa các button playPause
     let exitButton= document.getElementById('exitButton') //nút thoát background nhạc
     let homeButton= document.getElementById('homeButton')// nút về trang chủ
+    let playFavouriteMusic= document.getElementById('playFavouriteMusic') //nút play nhạc yêu thích
+    let heart= document.getElementById('heart') //nút heart
     
     //hàm check background Music
     let check=1; // biến check điều kiện
@@ -230,7 +247,7 @@
                 contain2.style.width= '100%'; contain2.style.height= '100%';
                 musicScreen.style.transition='all 1.5s'; musicScreen.style.bottom='2%'; 
                 searchingResultsBlock.innerHTML=``; exitButton.innerHTML='❎'; homeButton.innerHTML='';
-                timeContainer.style.left='5%'
+                timeContainer.style.left='5%'; playFavouriteMusic.style.left= '2%'; heart.style.right= '2%';
                 if(autoRunRadio==="Off"){
                     autoRunRadio= 'On'
                     setTimeout(autoPlay,1000)
@@ -245,7 +262,8 @@
             contain2.style.width= '0'; contain2.style.height= '0';
             listener.innerHTML= ''; musicScreen.style.transition='all 0s'
             musicScreen.style.bottom='-100%'; exitButton.innerHTML=''
-            searchingResultsBlock.innerHTML=``; homeButton.innerHTML=`<a href="index.html" >🏠︎</a>`
+            searchingResultsBlock.innerHTML=``; homeButton.innerHTML=`<a href="index.html" >🏠︎</a>`;
+            playFavouriteMusic.style.left= '-30%'; heart.style.right= '-30%';
         }
     }
 
@@ -257,27 +275,50 @@
     
 
     //hàm chuyển nhạc 
-    let n=1;
+    let n=1; let count=0;
     let nextSong=()=>{
+        count=0;
         takeMusic().then(myMusic=>{
             if (n<=myMusic.length-1){
                 music.pause(); x=0
                 n+=1; checkTime=0;
                 music= new Audio(`./music/${myMusic[n-1].name}.mp3`); 
                 checkBackground(myMusic)
-                playPause(); 
+                playPause();
+                for(let i=0; i<localStorage.length;i++){
+                    if(myMusic[n-1].name=== localStorage.key(i)){
+                        count=1; break;
+                    }
+                }
+                if(count===0){
+                    heart.src='https://phunugioi.com/wp-content/uploads/2020/11/tranh-to-mau-trai-tim-hinh-ve-don-gian.png'
+
+                }
+                else heart.src='https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/474100kNy/anh-icon-trai-tim-ghep-anh_054623143.png'
+                
             }  
         })     
     };
 
     let previousSong=()=>{
         if (n>1){
+            count=0;
             takeMusic().then(myMusic=>{
                 music.pause(); x=0
                 n-=1; checkTime=0;
                 music= new Audio(`./music/${myMusic[n-1].name}.mp3`); 
                 checkBackground(myMusic);
                 playPause();
+                for(let i=0; i<localStorage.length;i++){
+                    if(myMusic[n-1].name=== localStorage.key(i)){
+                        count=1; break;
+                    }
+                }
+                if(count===0){
+                    heart.src='https://phunugioi.com/wp-content/uploads/2020/11/tranh-to-mau-trai-tim-hinh-ve-don-gian.png'
+
+                }
+                else heart.src='https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/474100kNy/anh-icon-trai-tim-ghep-anh_054623143.png'
             })       
         }
     };
@@ -435,8 +476,68 @@
 
 
 
+    // play nhạc yêu thích
+    playFavouriteMusic.addEventListener('click', function(){
+        if(copyMusic.length===0){
+            warningEdit(`<h3><b>Bạn chưa có bài hát yêu thích nào!</b></h3>`)
+
+        }
+        else{
+            if(requestFavourMusic==='no'){
+                warningEdit(`<h3><b>Bạn đã vào playlist yêu thích!</b></h3>`)
+                requestFavourMusic='yes'; heart.style.right='-30%'
+
+            }
+            else{
+                warningEdit(`<h3><b>Bạn đã thoát playlist yêu thích!</b></h3>`)
+                requestFavourMusic='no'; heart.style.right='2%'
+            }
+
+            n=0; takeMusic().then(nextSong()) 
+        }
+
+    })
 
 
-    
+    //hàm warning
+    let warningEdit= (x)=>{
+        warning.innerHTML=`${x}`
+        warning.style.top= '12%';
+        setTimeout(function(){
+            warning.style.top='-30%';
+        }, 2500)
+    }
+
+
+    //hàm clickHeart
+    let clickHeart= ()=>{
+        takeMusic().then(myMusic=>{
+            if(heart.src==='https://phunugioi.com/wp-content/uploads/2020/11/tranh-to-mau-trai-tim-hinh-ve-don-gian.png'){
+                heart.src='https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/474100kNy/anh-icon-trai-tim-ghep-anh_054623143.png'
+                localStorage.setItem(`${myMusic[n-1].name}`, `${myMusic[n-1].name}`); 
+                copyMusic.push({name: `${myMusic[n-1].name}`});
+                warningEdit(`<h3><b>Đã thêm bài hát vào playlist yêu thích!</b></h3>`)
+
+            }
+            else{
+                heart.src='https://phunugioi.com/wp-content/uploads/2020/11/tranh-to-mau-trai-tim-hinh-ve-don-gian.png';
+                localStorage.removeItem(`${myMusic[n-1].name}`);
+                for(let i=0;i<copyMusic.length;i++){
+                    if(copyMusic[i].name=== `${myMusic[n-1].name}`){
+                        copyMusic.splice(i,1);
+                        break
+                    }
+                }
+                warningEdit(`<h3><b>Đã xóa bài hát khỏi playlist yêu thích!</b></h3>`)
+            }
+        })
+    };
+
+    heart.addEventListener('click', clickHeart);
+
+    // localStorage.clear()
+
+
+
     
     
