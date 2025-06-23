@@ -418,7 +418,8 @@
         takeMusic().then(myMusic=>{
             for(let i=0; i<arrIndex.length; i++){
                 searchingResults[i].addEventListener('click', function(){
-                    finder.value= `Song ${arrIndex[i]+1}: ${myMusic[arrIndex[i]].name}`   
+                    finder.value= `Song ${arrIndex[i]+1}: ${myMusic[arrIndex[i]].name}`  
+                    finder.focus() 
                 })    
             }
         })
