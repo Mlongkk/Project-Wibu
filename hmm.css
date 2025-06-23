@@ -170,6 +170,34 @@
         box-shadow: 0 0 10px #ffbde0; transition: 0.3s;
     }
     
+    #playFavouriteMusic{
+        position: fixed; padding: 12px 12px; left:-30%; bottom: 19%;
+        cursor: pointer; transition: all 1.5s; 
+        border-radius:10px; border: 0px;
+        background-color: rgb(245, 245, 245);
+    }
+
+    #playFavouriteMusic:hover{
+        box-shadow: 0 0 10px #ffbde0;
+        transition: 0.1s;
+    }
+
+    #heart{
+        position:fixed; display:flex; width: 10%; right:-30%; bottom: 31%; cursor:pointer; transition: all 1s
+    }
+
+    #heart:hover{
+        opacity: 0.6; transition: 0.1s;
+    }
+
+    #warning{
+        position: fixed; top: -30%; border-radius: 8px; padding: 3px 3px;
+        display: flex; justify-content: center; align-items: center; 
+        background-color: rgb(245, 245, 245); color:#6c5ce7;font-family: 'Times New Roman', Times, serif; 
+        text-align:center; transition:all 1s
+    }
+
+
 
     @media screen and ((max-width: 540px) or (min-height: 1024px)) {
         .musicButton{
