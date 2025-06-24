@@ -530,8 +530,11 @@
                     }
                 }
                 warningEdit(`<h3><b>Đã xóa bài hát khỏi playlist yêu thích!</b></h3>`)
-                if(requestFavourMusic==='yes'){
+                if(requestFavourMusic==='yes' && copyMusic.length>0){
                     n=0; takeMusic().then(nextSong())
+                }
+                else if(requestFavourMusic==='yes' && copyMusic.length==0){
+                    requestFavourMusic='no'; n=0; takeMusic().then(nextSong())
                 }
             }
         })
