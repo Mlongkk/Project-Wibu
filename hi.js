@@ -52,26 +52,13 @@
         if(x.length===0){
             for(let i=0;i<y.length;i++){
                 q=Math.floor(Math.random() * y.length);
-                if(q!==i){
-                    [y[i],y[q]]=[y[q],y[i]]; //hoán vị
-                    if(!x.includes(y[i])){
-                        x.push(y[i])
-                    }
-                    
-                    else x.push(y[q]); 
+                [y[i],y[q]]=[y[q],y[i]]; //hoán vị
+                if(!x.includes(y[i])){
+                    x.push(y[i])
                 }
-
-                else if(q===i){
-                    q=0; [y[i],y[q]]=[y[q],y[i]]; //hoán vị;
-                    if(!x.includes(y[i])){
-                        x.push(y[i])
-                    }
-                    
-                    else x.push(y[q]); 
-                }
+                else x.push(y[q]); 
             } 
         }
-        
         return x
     }
     
@@ -142,16 +129,10 @@
         }
 
         //random nhạc Yêu thích
-        if(copyMusic.length>1){
+        if(copyMusic.length>4){
             for(let i=0; i<copyMusic.length;i++){
                 w=Math.floor(Math.random() * copyMusic.length);
-                if(w!==i){
-                    [copyMusic[i],copyMusic[w]]=[copyMusic[w],copyMusic[i]]; //hoán vị
-                }
-
-                else if(w===i){
-                    w=0; [copyMusic[i],copyMusic[w]]=[copyMusic[w],copyMusic[i]]; //hoán vị;
-                }
+                [copyMusic[i],copyMusic[w]]=[copyMusic[w],copyMusic[i]]; //hoán vị
             }
         }
     }
