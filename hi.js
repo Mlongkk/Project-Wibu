@@ -2,7 +2,7 @@
     //Animation waiting Screen
     let waitingScreen= document.getElementById('waitingScreen') //khối div chứa full screen
     let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
-    let imgBackground= document.getElementById('imgBackground') //video nền 
+    // let imgBackground= document.getElementById('imgBackground') //video nền 
     let check2=0 //biến để thoát hàm resetGif
 
 
@@ -23,13 +23,14 @@
             changePic(a) //kích hoạt changePic ngay sau khi load trang    
         },7000)
 
-        setTimeout(()=>{
-           imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"; 
-        },10000)
+        // setTimeout(()=>{
+        //    imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"; 
+        // },10000)
 
         setTimeout(()=>{
             check2=1; 
             waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
+            warningEdit(`<h3><b>Chào mừng bạn đến với động Wibu!</b></h3>`)
         },11000)
         
     }
@@ -226,12 +227,12 @@
     let check=1; // biến check điều kiện
     let checkBackground=(x)=>{
         if(check===1){
-            listener.innerHTML= `<img class='backgroundMusic' src="folderWibu/66439076_p0.jpg" alt=""> <div class='backgroundMusic' style="position: absolute; background-color: rgba(0, 0, 0, 0.15);"></div>
+            listener.innerHTML= `<img class='backgroundMusic' src="folderWibu/66439076_p0.jpg" alt=""> <div style="position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.15);"></div>
         <h1 style='position:absolute; bottom:15%;'> <marquee behavior="sroll" direction="left"> Song ${n}: ${x[n-1].name} </marquee></h1>` 
         }
         else if(check===0){
             showPic().then(data=>{
-                listener.innerHTML= `<img class='backgroundMusic' src="folderWibu/${data[v].name}" alt=""> <div class='backgroundMusic' style="position: absolute; background-color: rgba(0, 0, 0, 0.15);"></div>
+                listener.innerHTML= `<img class='backgroundMusic' src="folderWibu/${data[v].name}" alt=""> <div style="position: absolute; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.15);"></div>
             <h1 style='position:absolute; bottom:15%;'> <marquee behavior="sroll" direction="left"> Song ${n}: ${x[n-1].name} </marquee></h1>` 
             })   
         }
@@ -485,12 +486,12 @@
         else{
             if(requestFavourMusic==='no'){
                 warningEdit(`<h3><b>Bạn đã vào playlist yêu thích!</b></h3>`)
-                requestFavourMusic='yes'; heart.style.right='-30%'
+                requestFavourMusic='yes'; 
 
             }
             else{
                 warningEdit(`<h3><b>Bạn đã thoát playlist yêu thích!</b></h3>`)
-                requestFavourMusic='no'; heart.style.right='2%'
+                requestFavourMusic='no'; 
             }
 
             n=0; takeMusic().then(nextSong()) 
@@ -529,6 +530,9 @@
                     }
                 }
                 warningEdit(`<h3><b>Đã xóa bài hát khỏi playlist yêu thích!</b></h3>`)
+                if(requestFavourMusic==='yes'){
+                    n=0; takeMusic().then(nextSong())
+                }
             }
         })
     };
