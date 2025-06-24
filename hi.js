@@ -135,12 +135,27 @@
     }
     
     //khởi tạo nhạc yêu thích
-    let copyMusic=[]; let requestFavourMusic='no'; 
+    let copyMusic=[]; let requestFavourMusic='no'; let w=0;
     if(localStorage.length>0){
         for(let i=0;i<localStorage.length;i++){
             copyMusic.push({name: `${localStorage.key(i)}`})
         }
+
+        //random nhạc Yêu thích
+        if(copyMusic.length>1){
+            for(let i=0; i<copyMusic.length;i++){
+                w=Math.floor(Math.random() * copyMusic.length);
+                if(w!==i){
+                    [copyMusic[i],copyMusic[w]]=[copyMusic[w],copyMusic[i]]; //hoán vị
+                }
+
+                else if(w===i){
+                    w=0; [copyMusic[i],copyMusic[w]]=[copyMusic[w],copyMusic[i]]; //hoán vị;
+                }
+            }
+        }
     }
+
 
     
     //lấy data Music từ file Json
@@ -157,12 +172,10 @@
 
     //music
     let music= ''; //audio khởi tạo
-    let musicInit= ()=>{
-        takeMusic().then(myMusic=>{
-            music= new Audio(`./music/${myMusic[0].name}.mp3`)
-        }) 
-    }
-    musicInit()
+    takeMusic().then(myMusic=>{
+        music= new Audio(`./music/${myMusic[0].name}.mp3`)
+    }) 
+
     
 
     let checkTime=0; //thời gian nhạc hiện tại
