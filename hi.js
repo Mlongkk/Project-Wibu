@@ -155,6 +155,16 @@
     let music= ''; //audio khởi tạo
     takeMusic().then(myMusic=>{
         music= new Audio(`./music/${myMusic[0].name}.mp3`)
+        for(let i=0; i<localStorage.length;i++){
+            if(myMusic[0].name=== localStorage.key(i)){
+                count=1; break;
+            }
+        }
+        if(count===0){
+            heart.src='https://phunugioi.com/wp-content/uploads/2020/11/tranh-to-mau-trai-tim-hinh-ve-don-gian.png'
+
+        }
+        else heart.src='https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/474100kNy/anh-icon-trai-tim-ghep-anh_054623143.png'
     }) 
 
     
