@@ -40,6 +40,7 @@
     .backgroundMusic{
         object-fit: cover; object-position:50% 20%; 
         max-width: 100%; max-height: 100%; border-radius: 15px;
+        min-width: 70%;
     }
 
     #gif{
@@ -184,12 +185,13 @@
     }
 
     #heart{
-        position:fixed; display:flex; width: 6%; right:-30%; bottom: 31%; cursor:pointer; transition: all 1s;
-        background-color:rgba(255, 255, 255, 0.55); border-radius: 14px; padding: 5px 5px;
+        position:fixed; display:flex; width: 6%; right:-30%; bottom: 31%; transition: all 1s;
+        background: linear-gradient(90deg, #fdb0d9, rgb(244, 255, 150)); border-radius: 14px; padding: 5px 5px;
+        opacity: 0.75;
     }
 
     #heart:hover{
-        opacity: 0.8; transition: 0.1s;
+        opacity: 0.6; transition: 0.1s; cursor:pointer;
     }
 
     #warning{
@@ -268,8 +270,9 @@
         }
 
         #heart{
-            position:fixed; display:flex; width: 15%; right:-30%; bottom: 31%; cursor:pointer; transition: all 1s;
-            background-color:rgba(255, 255, 255, 0.55); border-radius: 14px; padding: 5px 5px;
+            position:fixed; display:flex; width: 15%; right:-30%; bottom: 31%; transition: all 1s;
+            background: linear-gradient(90deg, #fdb0d9, rgb(244, 255, 150)); border-radius: 14px; padding: 5px 5px;
+            opacity: 0.75;
         }
         
     }
@@ -333,12 +336,14 @@
 
         .backgroundMusic{
             object-fit: cover; object-position:50% 20%; 
-            max-width: 100%; max-height: 100%;
+            max-width: 100%; max-height: 100%; border-radius: 15px;
+            min-width: 70%;
         }
 
         #heart{
-            position:fixed; display:flex; width: 6%; right:-30%; bottom: 31%; cursor:pointer; transition: all 1s;
-            background-color:rgba(255, 255, 255, 0.55); border-radius: 14px; padding: 5px 5px;
+            position:fixed; display:flex; width: 6%; right:-30%; bottom: 31%; transition: all 1s;
+            background: linear-gradient(90deg, #fdb0d9, rgb(244, 255, 150)); border-radius: 14px; padding: 5px 5px;
+            opacity: 0.8;
         }
     }
 
