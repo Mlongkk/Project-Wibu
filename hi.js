@@ -4,6 +4,7 @@
     let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
     // let imgBackground= document.getElementById('imgBackground') //video nền 
     let check2=0 //biến để thoát hàm resetGif
+    let introduction= document.getElementById('introduction')
 
 
     //do Gif hay bị lỗi nên phải tạo hàm để reset lại
@@ -32,18 +33,23 @@
             check2=1; 
             waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
             warningEdit(`<h3><b>Chào mừng bạn đến với động Wibu!</b></h3>`)
+            introduction.style.left='20%'
         },11000)
         
     }
     waitingAnimation();
 
 
-    //hàm auto chạy khi cửa sổ kéo xuống 200px, tác dụng: reset Video background
-    // window.onscroll=()=>{
-    //     if(document.body.scrollTop===200 || document.documentElement.scrollTop===200){
-    //         imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"
-    //     }
-    // }
+    window.onscroll=()=>{
+        if(document.body.scrollTop<=100 || document.documentElement.scrollTop<=100){
+            // imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"
+            introduction.style.left='20%'
+        }
+
+        if(document.body.scrollTop>=300 || document.documentElement.scrollTop>=300){
+            introduction.style.left='-100%'
+        }
+    }
     
 
     //hàm lấy ảnh ngẫu nhiên
@@ -451,7 +457,7 @@
                             searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<div class="searchingResults" onmouseover="newResult()" style="padding:5%">Song ${arrSearch[t]+1}: ${myMusic[arrSearch[t]].name}</div>`
                         }        
                     }
-                    
+
                     searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`    
                     if(arrIndex[0]>4 && arrIndex[0]>arrSearch[0]){
                         searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<p style='float:left; padding-left:3%; cursor:pointer' onclick='clickBack(arrIndex[0])'>⬅️</p>`
