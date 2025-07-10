@@ -34,21 +34,26 @@
             check2=1; 
             waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
             warningEdit(`<h3><b>Chào mừng bạn đến với động Wibu!</b></h3>`)
-            introduction.style.left='20%'; div_intro.style.left='0'
         },11000)
         
     }
     waitingAnimation();
 
 
+    let check4=0;
     window.onscroll=()=>{
         if(document.body.scrollTop<=100 || document.documentElement.scrollTop<=100){
             // imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"
-            introduction.style.left='20%'; div_intro.style.left='0'
+            if(check4===1){
+                introduction.style.left='20%'; div_intro.style.left='0'; check4=0;
+            }
+            
         }
 
         if(document.body.scrollTop>=300 || document.documentElement.scrollTop>=300){
-            introduction.style.left='-100%'; div_intro.style.left='-100%'
+            if(check4===0){
+                introduction.style.left='-100%'; div_intro.style.left='-100%'; check4=1;
+            }
         }
     }
     
@@ -97,18 +102,22 @@
             }
 
             if(x<data.length){
-                picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious' style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a)'>Next &raquo;</h1>`
+                picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious' style='float:right; padding:3%; cursor: pointer; transition: all 1.2s;' onclick='changePic(a)'>&raquo;</h1>`
             }
 
             if(x-check1>=0){
                 if(check1===18){
-                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious'style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1)'>&laquo; Back</h1>`
+                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious'style='float:right; padding:3%; cursor: pointer; transition: all 1.2s;' onclick='changePic(a-check1)'>&laquo;</h1>`
                 }
                 else{
-                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious' style='float:right; padding:3%; cursor: pointer;' onclick='changePic(a-check1-9)'>&laquo; Back</h1>`
+                    picContainer.innerHTML= `${picContainer.innerHTML} <h1 class='buttonNextprevious' style='float:right; padding:3%; cursor: pointer; transition: all 1.2s;' onclick='changePic(a-check1-9)'>&laquo;</h1>`
                 }
                 
             }
+
+            picContainer.innerHTML=`${picContainer.innerHTML}<div style="position:relative; float: left; transition: all 1.5s; text-align: center;font-size: 18px; font-weight: 400; color:rgba(0, 0, 0, 0.65); width:75%; background: linear-gradient(90deg, rgb(237, 219, 195), rgb(239, 247, 175)); border-radius: 20px; margin-top:10px">
+                                    <h2>Lời kết</h2>
+                                    <p>Cảm ơn đã ủng hộ chúng tớ💗!</p></div>`
         })
     }
     
@@ -519,7 +528,7 @@
         warning.style.top= '12%';
         setTimeout(function(){
             warning.style.top='-30%';
-        }, 2500)
+        }, 2800)
     }
 
 
