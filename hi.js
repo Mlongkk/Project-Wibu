@@ -4,7 +4,8 @@
     let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
     // let imgBackground= document.getElementById('imgBackground') //video nền 
     let check2=0 //biến để thoát hàm resetGif
-    let introduction= document.getElementById('introduction')
+    let introduction= document.getElementById('introduction');
+    let div_intro= document.getElementById('div_intro')
 
 
     //do Gif hay bị lỗi nên phải tạo hàm để reset lại
@@ -33,7 +34,7 @@
             check2=1; 
             waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
             warningEdit(`<h3><b>Chào mừng bạn đến với động Wibu!</b></h3>`)
-            introduction.style.left='20%'
+            introduction.style.left='20%'; div_intro.style.left='0'
         },11000)
         
     }
@@ -43,11 +44,11 @@
     window.onscroll=()=>{
         if(document.body.scrollTop<=100 || document.documentElement.scrollTop<=100){
             // imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"
-            introduction.style.left='20%'
+            introduction.style.left='20%'; div_intro.style.left='0'
         }
 
         if(document.body.scrollTop>=300 || document.documentElement.scrollTop>=300){
-            introduction.style.left='-100%'
+            introduction.style.left='-100%'; div_intro.style.left='-100%'
         }
     }
     
@@ -192,7 +193,7 @@
                     checkTime+=1
                 }
                 else if(checkTime===parseInt(music.duration)){
-                    checktime+=1
+                    checkTime+=1
                     if(n===myMusic.length){
                         x=1; 
                         alert('Đây đã là bài hát cuối cùng!')
