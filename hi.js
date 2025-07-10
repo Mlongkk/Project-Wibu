@@ -14,7 +14,8 @@
         }
         setTimeout(resetGif,2000)
     }
-        resetGif()
+    
+    resetGif()
     
     //hàm thoát waiting Screen
     let waitingAnimation=()=>{
@@ -177,16 +178,14 @@
 
     //hàm autoplay nhạc 
     let autoPlay=()=>{ 
-        checkTime= parseInt(checkTime)
         musicTime.innerHTML= `Current time: ${checkTime}s <br>
-                            End time: ${parseInt(music.duration)-3}s`;
+                            End time: ${parseInt(music.duration)}s`;
         takeMusic().then(myMusic=>{
             if(musicButtonplay.innerHTML==='<p class="musicButton">⏸️</p>'){
-                if(checkTime<parseInt(music.duration)-3){
+                if(checkTime<parseInt(music.duration)){
                     checkTime+=1
                 }
-                else if(checkTime===parseInt(music.duration)-3){
-                    checkTime+=1
+                else if(checkTime===parseInt(music.duration)){
                     if(n===myMusic.length){
                         x=1; 
                         alert('Đây đã là bài hát cuối cùng!')
@@ -328,18 +327,10 @@
         }
     };
 
-    //check search function
-    let check3=0;
-    let checkSearch=(x)=>{
-        if(x===0){
-            takeMusic().then(myMusic=>{
-                finder.value= `Song ${arrIndex[0]+1}: ${myMusic[arrIndex[0]].name}`;
-                searchMusic()
-            })   
-        }
-    }
 
+    
     //hàm của nút 'Search'
+    let check3=0;
     let filterSearch= document.getElementById('filterSearch'); 
     let searchMusic= ()=>{
         check3=0;
@@ -360,7 +351,12 @@
                         break;
                     } 
                 }
-                checkSearch(check3)              
+
+                if(check3===0){
+                    finder.value= `Song ${arrIndex[0]+1}: ${myMusic[arrIndex[0]].name}`;
+                    searchMusic()
+                }
+              
             })      
         }
         
@@ -420,17 +416,20 @@
     });
 
     //hàm click chuyển thanh kết quả nhạc
+    let t=0;
     let clickNext= (r)=>{
         if(arrIndex.length===5){
                 arrIndex=[];
                 searchingResultsBlock.innerHTML=``
                 takeMusic().then(myMusic=>{
                     for(let i=1; i<6; i++){
-                        if(arrSearch.indexOf(r)+i< arrSearch.length && arrIndex.length<5){
-                            arrIndex.push(arrSearch[arrSearch.indexOf(r)+i]); 
-                            searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<div class="searchingResults" onmouseover="newResult()" style="padding:5%"> Song ${arrSearch[arrSearch.indexOf(r)+i]+1}: ${myMusic[arrSearch[arrSearch.indexOf(r)+i]].name}</div>`    
+                        t= arrSearch.indexOf(r)+i;
+                        if(t<arrSearch.length && arrIndex.length<5){
+                            arrIndex.push(arrSearch[t]); 
+                            searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<div class="searchingResults" onmouseover="newResult()" style="padding:5%"> Song ${arrSearch[t]+1}: ${myMusic[arrSearch[t]].name}</div>`    
                         }   
                     }
+
                     searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<p style='float:left; padding-left:3%; cursor:pointer' onclick='clickBack(arrIndex[0])'>⬅️</p>`
                     if(arrIndex.length===5 && arrIndex[arrIndex.length-1]<arrSearch.length-1){
                         searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`
@@ -446,11 +445,13 @@
                 searchingResultsBlock.innerHTML=``
                 takeMusic().then(myMusic=>{
                     for(let i=-5; i<0; i++){
-                        if(arrSearch.indexOf(r)+i< arrSearch.length && arrIndex.length<5){
-                            arrIndex.push(arrSearch[arrSearch.indexOf(r)+i]); 
-                            searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<div class="searchingResults" onmouseover="newResult()" style="padding:5%">Song ${arrSearch[arrSearch.indexOf(r)+i]+1}: ${myMusic[arrSearch[arrSearch.indexOf(r)+i]].name}</div>`
+                        t= arrSearch.indexOf(r)+i;
+                        if(t<arrSearch.length && arrIndex.length<5){
+                            arrIndex.push(arrSearch[t]); 
+                            searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<div class="searchingResults" onmouseover="newResult()" style="padding:5%">Song ${arrSearch[t]+1}: ${myMusic[arrSearch[t]].name}</div>`
                         }        
                     }
+                    
                     searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML} <p style='float:right; padding-right:3%; cursor: pointer' onclick='clickNext(arrIndex[arrIndex.length-1])'>➡️</p>`    
                     if(arrIndex[0]>4 && arrIndex[0]>arrSearch[0]){
                         searchingResultsBlock.innerHTML= `${searchingResultsBlock.innerHTML}<p style='float:left; padding-left:3%; cursor:pointer' onclick='clickBack(arrIndex[0])'>⬅️</p>`
