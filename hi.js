@@ -192,6 +192,7 @@
                     checkTime+=1
                 }
                 else if(checkTime===parseInt(music.duration)){
+                    checktime+=1
                     if(n===myMusic.length){
                         x=1; 
                         alert('Đây đã là bài hát cuối cùng!')
