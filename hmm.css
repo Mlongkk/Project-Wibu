@@ -86,9 +86,9 @@
     }
 
     #introduction{
-        position: absolute;  transition: all 1.5s; 
+        position: absolute;  transition: all 1.5s; text-align: center;
         font-size: 18px; font-weight: 400; color:rgba(0, 0, 0, 0.65);
-        width:60%; height: 29.5%; top:40%;  left: -100%; 
+        width:60%;  top:30%;  left: -100%; 
         background: linear-gradient(90deg, rgb(237, 219, 195), rgb(239, 247, 175));
         border-radius: 20px; 
     }
@@ -99,7 +99,7 @@
 
     #picContainer{
         position: absolute;  transition: all 2.2s; 
-        width:90%; height: 200vh; top:80%;  right:5%; 
+        width:90%; height: 200vh; top:90%;  right:5%; 
         
     }
 
@@ -293,7 +293,7 @@
         }
 
         #introduction{
-            position: absolute;  transition: all 1.5s; 
+            position: absolute;  transition: all 1.5s; text-align: center;
             font-size: 18px; font-weight: 400; color:rgba(0, 0, 0, 0.65);
             width:60%; height: 30%; top:-100%;  left: -100%; 
             background: linear-gradient(90deg, rgb(237, 219, 195), rgb(239, 247, 175));
@@ -372,7 +372,7 @@
         }
 
         #introduction{
-            position: absolute;  transition: all 1.5s; 
+            position: absolute;  transition: all 1.5s; text-align: center;
             font-size: 20px; font-weight: 400; color:rgba(0, 0, 0, 0.65);
             width:60%; height: 29.5%; top:-100%;  left: -100%; 
             background: linear-gradient(90deg, rgb(237, 219, 195), rgb(239, 247, 175));
