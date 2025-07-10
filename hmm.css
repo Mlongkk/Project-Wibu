@@ -9,7 +9,7 @@
 
     #title{
         position: fixed; width: 100%; height: 12%; top:0;
-        background: linear-gradient(90deg, rgba(0, 0, 0, 0.5), #5c6bc0, rgba(0, 0, 0, 0.2), #8e24aa);
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.4), #5c6bc0, rgba(0, 0, 0, 0.2), #8e24aa);
         display: flex; justify-content: center; align-items: center;
     }
 
@@ -25,7 +25,7 @@
     #listener{
         position: fixed; display: flex; justify-content: center; align-items: center;
         width: 0; height: 0; top:0; right: 0;
-        transition: all 1s; background-color: rgba(53, 51, 51, 0.973);
+        transition: all 1s; background-color: rgba(59, 59, 59, 0.973);
     }
 
 
@@ -85,9 +85,21 @@
         transition: all 0.5s;
     }
 
+    #introduction{
+        position: absolute;  transition: all 1.5s; 
+        font-size: 18px; font-weight: 400; color:rgba(0, 0, 0, 0.65);
+        width:60%; height: 30%; top:40%;  left: -100%; 
+        background: linear-gradient(90deg, rgb(237, 219, 195), rgb(239, 247, 175));
+        border-radius: 20px; 
+    }
+
+    #introduction img{
+        width: 12%; float:right; 
+    }
+
     #picContainer{
         position: absolute;  transition: all 2.2s; 
-        width:90%; height: 200vh; top:43%;  right:5%; 
+        width:90%; height: 200vh; top:80%;  right:5%; 
         
     }
 
@@ -110,6 +122,11 @@
 
     .musicButton{
         width:90px; height:20%; font-size:x-large; cursor:pointer; opacity: 0.9;
+    }
+
+    #musicScreen button{
+        cursor:pointer; border-radius: 50%; border:0px;
+        background: rgb(247, 234, 218);
     }
 
     #musicScreen button:hover{
@@ -274,6 +291,14 @@
             background: linear-gradient(90deg, #fdb0d9, rgb(244, 255, 150)); border-radius: 14px; padding: 5px 5px;
             opacity: 0.75;
         }
+
+        #introduction{
+            position: absolute;  transition: all 1.5s; 
+            font-size: 18px; font-weight: 400; color:rgba(0, 0, 0, 0.65);
+            width:60%; height: 30%; top:-100%;  left: -100%; 
+            background: linear-gradient(90deg, rgb(237, 219, 195), rgb(239, 247, 175));
+            border-radius: 20px;
+        }
         
     }
 
@@ -300,18 +325,18 @@
         }
 
         .searchBlock{
-            position: fixed; left:5%; transition: all 1s; cursor: pointer; 
+            position: fixed; left:5%; transition: all 1s; cursor: pointer; width: 50%; left:25%
         }
         
         .searchButton{
-            position: fixed;  right:12%; top:9%; font-family:'Poppins', sans-serif;
+            position: fixed;  right:20%; top:8%; font-family:'Poppins', sans-serif;
             background-color: #6c5ce7; color: white;
             border: none; border-radius: 8px;
             padding: 6px 6px;
         }
 
         #searchingResultsBlock{
-            position: fixed; width: 50%; left:5%; top: 8%; border-radius: 10px;
+            position: fixed; width: 50%; left:25%; top: 8%; border-radius: 10px;
             background-color: white; color:rgba(0, 0, 0, 0.65); box-sizing: border-box;
         
         }
@@ -345,6 +370,15 @@
             background: linear-gradient(90deg, #fdb0d9, rgb(244, 255, 150)); border-radius: 14px; padding: 5px 5px;
             opacity: 0.8;
         }
+
+        #introduction{
+            position: absolute;  transition: all 1.5s; 
+            font-size: 18px; font-weight: 400; color:rgba(0, 0, 0, 0.65);
+            width:60%; height: 30%; top:-100%;  left: -100%; 
+            background: linear-gradient(90deg, rgb(237, 219, 195), rgb(239, 247, 175));
+            border-radius: 20px;
+        }
+        
     }
 
     
