@@ -88,13 +88,13 @@
     #introduction{
         position: absolute;  transition: all 1.5s; 
         font-size: 18px; font-weight: 400; color:rgba(0, 0, 0, 0.65);
-        width:60%; height: 30%; top:40%;  left: -100%; 
+        width:60%; height: 29.5%; top:40%;  left: -100%; 
         background: linear-gradient(90deg, rgb(237, 219, 195), rgb(239, 247, 175));
         border-radius: 20px; 
     }
 
     #introduction img{
-        width: 12%; float:right; 
+        width: 11%; float:right; 
     }
 
     #picContainer{
@@ -373,8 +373,8 @@
 
         #introduction{
             position: absolute;  transition: all 1.5s; 
-            font-size: 18px; font-weight: 400; color:rgba(0, 0, 0, 0.65);
-            width:60%; height: 30%; top:-100%;  left: -100%; 
+            font-size: 20px; font-weight: 400; color:rgba(0, 0, 0, 0.65);
+            width:60%; height: 29.5%; top:-100%;  left: -100%; 
             background: linear-gradient(90deg, rgb(237, 219, 195), rgb(239, 247, 175));
             border-radius: 20px;
         }
