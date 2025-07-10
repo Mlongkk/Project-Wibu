@@ -9,7 +9,7 @@
 
     #title{
         position: fixed; width: 100%; height: 12%; top:0;
-        background: linear-gradient(90deg, rgba(0, 0, 0, 0.4), #5c6bc0, rgba(0, 0, 0, 0.2), #8e24aa);
+        background: linear-gradient(90deg, rgba(0, 0, 0, 0.3), #5c6bc0, rgba(0, 0, 0, 0.2), #8e24aa);
         display: flex; justify-content: center; align-items: center;
     }
 
@@ -25,7 +25,7 @@
     #listener{
         position: fixed; display: flex; justify-content: center; align-items: center;
         width: 0; height: 0; top:0; right: 0;
-        transition: all 1s; background-color: rgba(59, 59, 59, 0.973);
+        transition: all 1s; background-color: rgba(102, 98, 98, 0.973);
     }
 
 
@@ -40,7 +40,7 @@
     .backgroundMusic{
         object-fit: cover; object-position:50% 20%; 
         max-width: 100%; max-height: 100%; border-radius: 15px;
-        min-width: 70%;
+        /* min-width: 70%; */
     }
 
     #gif{
@@ -126,7 +126,7 @@
 
     #musicScreen button{
         cursor:pointer; border-radius: 50%; border:0px;
-        background: rgb(247, 234, 218);
+        background: rgb(243, 231, 231);
     }
 
     #musicScreen button:hover{
