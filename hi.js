@@ -115,7 +115,7 @@
                 
             }
 
-            picContainer.innerHTML=`${picContainer.innerHTML}<div style="position:relative; float: left; transition: all 1.5s; text-align: center;font-size: 18px; font-weight: 400; color:rgba(0, 0, 0, 0.65); width:75%; background: linear-gradient(90deg, rgb(237, 219, 195), rgb(239, 247, 175)); border-radius: 20px; margin-top:10px">
+            picContainer.innerHTML=`${picContainer.innerHTML}<div id="outro">
                                     <h2>Lời kết</h2>
                                     <p>Cảm ơn đã ủng hộ chúng tớ💗!</p></div>`
         })
