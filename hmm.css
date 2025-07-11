@@ -222,7 +222,12 @@
         text-align:center; transition:all 1s
     }
 
-
+    #outro{
+        position:relative; float: left; transition: all 1.5s; text-align: center; width:82%;
+        font-size: 16px; font-weight: 400; color:rgba(0, 0, 0, 0.65); 
+        background: linear-gradient(90deg, rgb(237, 219, 195), rgb(239, 247, 175));
+        border-radius: 20px; margin-top:10px; 
+    }
 
     @media screen and ((max-width: 540px) or (min-height: 1024px)) {
         .musicButton{
@@ -307,6 +312,12 @@
             position:absolute; background:rgba(0, 0, 0, 0); width: 0; height: 0; left: -100%; top:-100%;
         }
         
+        #outro{
+            position:relative; float: left; transition: all 1.5s; text-align: center; width:75%;
+            font-size: 12px; font-weight: 400; color:rgba(0, 0, 0, 0.65); 
+            background: linear-gradient(90deg, rgb(237, 219, 195), rgb(239, 247, 175));
+            border-radius: 20px; margin-top:10px
+        }
     }
 
     @media screen and ((min-width:1025px) and (min-height:1000px)){
@@ -390,6 +401,12 @@
             position:absolute; background:rgba(0, 0, 0, 0); width: 0; height: 0; left: -100%; top:-100%
         }
         
+        #outro{
+            position:relative; float: left; transition: all 1.5s; text-align: center; width:85%;
+            font-size: 26px; font-weight: 400; color:rgba(0, 0, 0, 0.65); 
+            background: linear-gradient(90deg, rgb(237, 219, 195), rgb(239, 247, 175));
+            border-radius: 20px; margin-top:10px
+        }
     }
 
     
