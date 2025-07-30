@@ -1,23 +1,23 @@
 
     //Animation waiting Screen
     let waitingScreen= document.getElementById('waitingScreen') //khối div chứa full screen
-    // let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
+    let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
     // let imgBackground= document.getElementById('imgBackground') //video nền 
-    // let check2=0 //biến để thoát hàm resetGif
+    let check2=0 //biến để thoát hàm resetGif
     let introduction= document.getElementById('introduction');
     let div_intro= document.getElementById('div_intro')
 
 
     //do Gif hay bị lỗi nên phải tạo hàm để reset lại
-    // let resetGif=()=>{
-    //     innerWaitingScreen.src='https://i.pinimg.com/originals/ef/ab/94/efab94beb0245948a128e4388f973988.gif' 
-    //     if(check2===1){
-    //         return
-    //     }
-    //     setTimeout(resetGif,2000)
-    // }
+    let resetGif=()=>{
+        innerWaitingScreen.src='https://i.pinimg.com/originals/81/fd/f2/81fdf219ef42c1508799f27c1e5589ed.gif' 
+        if(check2===1){
+            return
+        }
+        setTimeout(resetGif,4000)
+    }
     
-    // resetGif()
+    resetGif()
     
     //hàm thoát waiting Screen
     let waitingAnimation=()=>{
@@ -31,7 +31,7 @@
         // },10000)
 
         setTimeout(()=>{
-            // check2=1; 
+            check2=1; 
             waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
             warningEdit(`<h3><b>Chào mừng bạn đến với động Wibu!</b></h3>`)
         },10000)
