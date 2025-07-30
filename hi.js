@@ -1,40 +1,40 @@
 
     //Animation waiting Screen
     let waitingScreen= document.getElementById('waitingScreen') //khối div chứa full screen
-    let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
+    // let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
     // let imgBackground= document.getElementById('imgBackground') //video nền 
-    let check2=0 //biến để thoát hàm resetGif
+    // let check2=0 //biến để thoát hàm resetGif
     let introduction= document.getElementById('introduction');
     let div_intro= document.getElementById('div_intro')
 
 
     //do Gif hay bị lỗi nên phải tạo hàm để reset lại
-    let resetGif=()=>{
-        innerWaitingScreen.src='https://i.pinimg.com/originals/ef/ab/94/efab94beb0245948a128e4388f973988.gif' 
-        if(check2===1){
-            return
-        }
-        setTimeout(resetGif,2000)
-    }
+    // let resetGif=()=>{
+    //     innerWaitingScreen.src='https://i.pinimg.com/originals/ef/ab/94/efab94beb0245948a128e4388f973988.gif' 
+    //     if(check2===1){
+    //         return
+    //     }
+    //     setTimeout(resetGif,2000)
+    // }
     
-    resetGif()
+    // resetGif()
     
     //hàm thoát waiting Screen
     let waitingAnimation=()=>{
 
         setTimeout(()=>{
             changePic(a) //kích hoạt changePic ngay sau khi load trang    
-        },7000)
+        },6000)
 
         // setTimeout(()=>{
         //    imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"; 
         // },10000)
 
         setTimeout(()=>{
-            check2=1; 
+            // check2=1; 
             waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
             warningEdit(`<h3><b>Chào mừng bạn đến với động Wibu!</b></h3>`)
-        },11000)
+        },10000)
         
     }
     waitingAnimation();
@@ -116,7 +116,7 @@
             }
 
             picContainer.innerHTML=`${picContainer.innerHTML}<div id="outro">
-                                    <h2>Lời kết</h2>
+                                    <h2>Thank you!!</h2>
                                     <p>Cảm ơn đã ủng hộ chúng tớ💗!</p></div>`
         })
     }
@@ -178,10 +178,10 @@
             }
         }
         if(count===0){
-            heart.src='https://phunugioi.com/wp-content/uploads/2020/11/tranh-to-mau-trai-tim-hinh-ve-don-gian.png'
+            heart.innerHTML='🤍'
 
         }
-        else heart.src='https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/474100kNy/anh-icon-trai-tim-ghep-anh_054623143.png'
+        else heart.innerHTML='❤️'
     }) 
 
     
@@ -312,10 +312,10 @@
                     }
                 }
                 if(count===0){
-                    heart.src='https://phunugioi.com/wp-content/uploads/2020/11/tranh-to-mau-trai-tim-hinh-ve-don-gian.png'
+                    heart.innerHTML='🤍'
 
                 }
-                else heart.src='https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/474100kNy/anh-icon-trai-tim-ghep-anh_054623143.png'
+                else heart.innerHTML='❤️'
                 
             }  
         })     
@@ -336,10 +336,10 @@
                     }
                 }
                 if(count===0){
-                    heart.src='https://phunugioi.com/wp-content/uploads/2020/11/tranh-to-mau-trai-tim-hinh-ve-don-gian.png'
+                    heart.innerHTML='🤍'
 
                 }
-                else heart.src='https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/474100kNy/anh-icon-trai-tim-ghep-anh_054623143.png'
+                else heart.innerHTML='❤️'
             })       
         }
     };
@@ -535,15 +535,15 @@
     //hàm clickHeart
     let clickHeart= ()=>{
         takeMusic().then(myMusic=>{
-            if(heart.src==='https://phunugioi.com/wp-content/uploads/2020/11/tranh-to-mau-trai-tim-hinh-ve-don-gian.png'){
-                heart.src='https://img.tripi.vn/cdn-cgi/image/width=700,height=700/https://gcs.tripi.vn/public-tripi/tripi-feed/img/474100kNy/anh-icon-trai-tim-ghep-anh_054623143.png'
+            if(heart.innerHTML==='🤍'){
+                heart.innerHTML='❤️'
                 localStorage.setItem(`${myMusic[n-1].name}`, `${myMusic[n-1].name}`); 
                 copyMusic.push({name: `${myMusic[n-1].name}`});
                 warningEdit(`<h3><b>Đã thêm bài hát vào playlist yêu thích!</b></h3>`)
 
             }
             else{
-                heart.src='https://phunugioi.com/wp-content/uploads/2020/11/tranh-to-mau-trai-tim-hinh-ve-don-gian.png';
+                heart.innerHTML='🤍';
                 localStorage.removeItem(`${myMusic[n-1].name}`);
                 for(let i=0;i<copyMusic.length;i++){
                     if(copyMusic[i].name=== `${myMusic[n-1].name}`){
