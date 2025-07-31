@@ -24,7 +24,7 @@
 
         setTimeout(()=>{
             changePic(a) //kích hoạt changePic ngay sau khi load trang    
-        },6000)
+        },7000)
 
         // setTimeout(()=>{
         //    imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"; 
@@ -34,7 +34,7 @@
             check2=1; 
             waitingScreen.innerHTML=''; waitingScreen.style.width='0px'; waitingScreen.style.height='0px'; 
             warningEdit(`<h3><b>Chào mừng bạn đến với động Wibu!</b></h3>`)
-        },10000)
+        },11000)
         
     }
     waitingAnimation();
