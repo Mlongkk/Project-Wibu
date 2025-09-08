@@ -1,16 +1,14 @@
 
     //Animation waiting Screen
-    let waitingScreen= document.getElementById('waitingScreen') //khối div chứa full screen
-    let innerWaitingScreen= document.getElementById('innerWaitingScreen') //ảnh Gif waiting
     // let imgBackground= document.getElementById('imgBackground') //video nền 
     let check2=0 //biến để thoát hàm resetGif
-    let introduction= document.getElementById('introduction');
-    let div_intro= document.getElementById('div_intro')
-
+    // let introduction= document.getElementById('introduction');
+    // let div_intro= document.getElementById('div_intro')
+    let innerWaitingScreen= document.getElementById('innerWaitingScreen'); //ảnh Gif waiting
 
     //do Gif hay bị lỗi nên phải tạo hàm để reset lại
     let resetGif=()=>{
-        innerWaitingScreen.src='https://i.pinimg.com/originals/81/fd/f2/81fdf219ef42c1508799f27c1e5589ed.gif' 
+        innerWaitingScreen.src='https://i.pinimg.com/originals/81/fd/f2/81fdf219ef42c1508799f27c1e5589ed.gif'; 
         if(check2===1){
             return
         }
@@ -21,6 +19,7 @@
     
     //hàm thoát waiting Screen
     let waitingAnimation=()=>{
+        let waitingScreen= document.getElementById('waitingScreen') //khối div chứa full screen
 
         setTimeout(()=>{
             changePic(a) //kích hoạt changePic ngay sau khi load trang    
@@ -39,23 +38,23 @@
     }
     waitingAnimation();
 
-
-    let check4=0;
-    window.onscroll=()=>{
-        if(document.body.scrollTop<=100 || document.documentElement.scrollTop<=100){
-            // imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"
-            if(check4===1){
-                introduction.style.left='20%'; div_intro.style.left='0'; check4=0;
-            }
+    // let check4=0;
+    // window.onscroll=()=>{
+        
+    //     if(document.body.scrollTop<=100 || document.documentElement.scrollTop<=100){
+    //         // imgBackground.src= "gundam-witch-mercury.1920x1080.mp4"
+    //         if(check4===1){
+    //             introduction.style.left='20%'; div_intro.style.left='0'; check4=0;
+    //         }
             
-        }
+    //     }
 
-        if(document.body.scrollTop>=300 || document.documentElement.scrollTop>=300){
-            if(check4===0){
-                introduction.style.left='-100%'; div_intro.style.left='-100%'; check4=1;
-            }
-        }
-    }
+    //     if(document.body.scrollTop>=300 || document.documentElement.scrollTop>=300){
+    //         if(check4===0){
+    //             introduction.style.left='-100%'; div_intro.style.left='-100%'; check4=1;
+    //         }
+    //     }
+    // }
     
 
     //hàm lấy ảnh ngẫu nhiên
@@ -387,11 +386,13 @@
     let searchingResults= document.getElementsByClassName('searchingResults'); //các kết quả tìm kiếm nhạc
     let arrIndex=[]; let arrSearch=[]; //đây là 2 arr chứa các kết quả tìm kiếm thỏa mãn
     
-    //đây là 2 thẻ <p> giúp filter kết quả tìm kiếm
-    let filter1= document.getElementById('filter1');
-    let filter2= document.getElementById('filter2');
+    
     
     finder.addEventListener('keyup', function(e){
+        //đây là 2 thẻ <p> giúp filter kết quả tìm kiếm
+        let filter1= document.getElementById('filter1');
+        let filter2= document.getElementById('filter2');
+
         arrIndex=[]; arrSearch=[];
         searchingResultsBlock.innerHTML=``;
 
